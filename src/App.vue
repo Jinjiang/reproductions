@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+// import Foo from "./samples/mvp/anonymous.vue";
+// import Foo from "./samples/css-modules/css.modules.vue";
+// import Foo from "./samples/external-scoped/foo.vue";
+// import Foo from "./samples/external-css-modules/foo.vue";
 </script>
 
 <template>
@@ -12,6 +16,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <!-- <Foo /> -->
 </template>
 
 <style scoped>
