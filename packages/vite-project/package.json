@@ -8,7 +8,11 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "foo": "*"
+  },
   "devDependencies": {
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-commonjs": "^0.6.2"
   }
 }
