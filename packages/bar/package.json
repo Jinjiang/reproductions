@@ -1,3 +1,6 @@
 {
-  "name": "bar"
+  "name": "bar",
+  "dependencies": {
+    "regexpu-core": "^5.3.2"
+  }
 }

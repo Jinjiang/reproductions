@@ -4,11 +4,19 @@ importers:
 
   .: {}
 
-  packages/bar: {}
+  packages/bar:
+    dependencies:
+      regexpu-core:
+        specifier: ^5.3.2
+        version: 5.3.2
 
   packages/foo: {}
 
   packages/vite-project:
+    dependencies:
+      regexpu-core:
+        specifier: ^5.3.2
+        version: 5.3.2
     devDependencies:
       vite:
         specifier: ^4.3.2
@@ -18,6 +26,10 @@ importers:
         version: 0.7.0
 
 packages:
+
+  /@babel/regjsgen@0.8.0:
+    resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
+    dev: false
 
   /@esbuild/android-arm64@0.17.18:
     resolution: {integrity: sha512-/iq0aK0eeHgSC3z55ucMAHO05OIqmQehiGay8eP5l/5l+iEr4EIbh4/MI8xD9qRFjqzgkc0JkX0LculNC9mXBw==}
@@ -341,6 +353,11 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
+  /jsesc@0.5.0:
+    resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
+    hasBin: true
+    dev: false
+
   /merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -382,6 +399,36 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
+  /regenerate-unicode-properties@10.1.0:
+    resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
+    engines: {node: '>=4'}
+    dependencies:
+      regenerate: 1.4.2
+    dev: false
+
+  /regenerate@1.4.2:
+    resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
+    dev: false
+
+  /regexpu-core@5.3.2:
+    resolution: {integrity: sha512-RAM5FlZz+Lhmo7db9L298p2vHP5ZywrVXmVXpmAD9GuL5MPH6t9ROw1iA/wfHkQ76Qe7AaPF0nGuim96/IrQMQ==}
+    engines: {node: '>=4'}
+    dependencies:
+      '@babel/regjsgen': 0.8.0
+      regenerate: 1.4.2
+      regenerate-unicode-properties: 10.1.0
+      regjsparser: 0.9.1
+      unicode-match-property-ecmascript: 2.0.0
+      unicode-match-property-value-ecmascript: 2.1.0
+    dev: false
+
+  /regjsparser@0.9.1:
+    resolution: {integrity: sha512-dQUtn90WanSNl+7mQKcXAgZxvUe7Z0SqXlgzv0za4LwiUhyzBC58yQO3liFoUgu8GiJVInAhJjkj1N0EtQ5nkQ==}
+    hasBin: true
+    dependencies:
+      jsesc: 0.5.0
+    dev: false
+
   /reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
@@ -412,6 +459,29 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
+
+  /unicode-canonical-property-names-ecmascript@2.0.0:
+    resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
+    engines: {node: '>=4'}
+    dev: false
+
+  /unicode-match-property-ecmascript@2.0.0:
+    resolution: {integrity: sha512-5kaZCrbp5mmbz5ulBkDkbY0SsPOjKqVS35VpL9ulMPfSl0J0Xsm+9Evphv9CoIZFwre7aJoa94AY6seMKGVN5Q==}
+    engines: {node: '>=4'}
+    dependencies:
+      unicode-canonical-property-names-ecmascript: 2.0.0
+      unicode-property-aliases-ecmascript: 2.1.0
+    dev: false
+
+  /unicode-match-property-value-ecmascript@2.1.0:
+    resolution: {integrity: sha512-qxkjQt6qjg/mYscYMC0XKRn3Rh0wFPlfxB0xkt9CfyTvpX1Ra0+rAmdX2QyAobptSEvuy4RtpPRui6XkV+8wjA==}
+    engines: {node: '>=4'}
+    dev: false
+
+  /unicode-property-aliases-ecmascript@2.1.0:
+    resolution: {integrity: sha512-6t3foTQI9qne+OZoVQB/8x8rk2k1eVy1gRXhV3oFQ5T6R1dqQ1xtin3XqSlx3+ATBkliTaR/hHyJBm+LVPNM8w==}
+    engines: {node: '>=4'}
+    dev: false
 
   /vite-plugin-commonjs@0.7.0:
     resolution: {integrity: sha512-L7Vl7pS7y+OPDLEg1/06GAfCgitu8+BMX5m5BOkrvuNu93kKLGdEqi1xA8fr987CSvHhPRfxqP0p+V5oSq9fYQ==}
