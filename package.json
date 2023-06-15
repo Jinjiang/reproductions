@@ -1,0 +1,6 @@
+{
+  "name": "debug-vite-dev-server",
+  "scripts": {
+    "dev": "vite"
+  }
+}
