@@ -1,5 +1,6 @@
+/* this entry file is collected and modified from `bit start` */
 
-/* overview entry file */
+/* 1. OVERVIEW */
 
 // import { linkModules } from 'C:\\Users\\zhaoj\\AppData\\Local\\.bvm\\versions\\0.1.60\\bit-0.1.60\\node_modules\\@teambit\\preview\\dist\\preview.preview.runtime.js';
 
@@ -20,7 +21,7 @@
 // });
 
 
-/* compositions entry file */
+/* 2. COMPOSITIONS */
 
 // import { linkModules } from 'C:\\Users\\zhaoj\\AppData\\Local\\.bvm\\versions\\0.1.60\\bit-0.1.60\\node_modules\\@teambit\\preview\\dist\\preview.preview.runtime.js';
 
@@ -41,7 +42,7 @@
 // });
 
 
-/* ui/dist/preview.root entry file */
+/* 3. ui/dist/preview.root<hash>.js */
 
 // import { Harmony } from '@teambit/harmony';
 // import previewAspect from 'C:\\Users\\zhaoj\\AppData\\Local\\.bvm\\versions\\0.1.60\\bit-0.1.60\\node_modules\\@teambit\\preview\\dist\\preview.aspect.js';
@@ -100,7 +101,7 @@
 // if (isBrowser || 'preview' === 'main') render();
 
 
-/* debugging code */
+/* DEBUGGING CODE */
 
 import { linkModules } from '@teambit/preview/dist/preview.preview.runtime.js';
 
@@ -234,7 +235,7 @@ function render(...props){
 // if (isBrowser || 'preview' === 'main') render();
 
 
-/* log information */
+/* LOG INFO */
 
 console.log({
   linkModules,

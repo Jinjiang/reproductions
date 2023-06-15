@@ -1,4 +1,3 @@
-// import nodePolyfills from 'vite-plugin-node-stdlib-browser';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import react from '@vitejs/plugin-react';
 import mdx from 'vite-plugin-mdx';
