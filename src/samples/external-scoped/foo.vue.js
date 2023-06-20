@@ -1,4 +1,4 @@
-import './external.css?scoped=true&id=0d49ede6';
+import './external.css?scoped=true&id=0d49ede6&lang.css';
 
 import { ref } from "vue"
 const __sfc__ = {

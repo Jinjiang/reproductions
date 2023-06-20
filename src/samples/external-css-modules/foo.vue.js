@@ -1,4 +1,4 @@
-import style0 from './external.css?module=true';
+import style0 from './external.css?module=true&lang.module.css';
 
 const __sfc__ = {
   data() {
