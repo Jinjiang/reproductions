@@ -1,8 +1,22 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+
 // import Foo from "./samples/mvp/anonymous.vue";
+// import Foo from "./samples/non-css/anonymous.vue";
+// import Foo from "./samples/setup/setup.vue";
+// import Foo from "./samples/ts/ts.vue";
+// import Foo from "./samples/imports/bar.vue";
+// import Foo from "./samples/scoped/scoped.vue";
 // import Foo from "./samples/css-modules/css.modules.vue";
+// import Foo from "./samples/sass/foo.vue";
+// import Foo from "./samples/external-js/foo.vue";
+// import Foo from "./samples/external-ts/foo.vue";
+// import Foo from "./samples/external-css/foo.vue";
+// import Foo from "./samples/external-sass/foo.vue";
+
+// // doesn't work (css not scoped)
 // import Foo from "./samples/external-scoped/foo.vue";
+// // doesn't work (css class names not generated in neither js nor css)
 // import Foo from "./samples/external-css-modules/foo.vue";
 </script>
 
@@ -15,7 +29,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <!-- <HelloWorld msg="Vite + Vue" /> -->
   <!-- <Foo /> -->
 </template>
 

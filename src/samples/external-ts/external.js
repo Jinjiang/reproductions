@@ -6,7 +6,7 @@ export default {
     }
   },
   methods: {
-    someMethod(arg: string): string {
+    someMethod(arg) {
       return 'hello ' + arg
     },
   },

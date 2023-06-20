@@ -351,7 +351,7 @@ export default {
   </p>
 </template>
 
-<style module src="./external.module.css"></style>
+<style module src="./external.css"></style>
 `;
 
 export const externalCssModulesAsset = `.red {
