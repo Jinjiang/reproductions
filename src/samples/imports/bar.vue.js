@@ -1,3 +1,5 @@
+import './bar.vue.css';
+
 import Foo from "./foo.vue.js"
 const __sfc__ = {
   components: {
@@ -6,6 +8,7 @@ const __sfc__ = {
 }
 
 import { resolveComponent as _resolveComponent, createVNode as _createVNode, createTextVNode as _createTextVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Foo = _resolveComponent("Foo")
 
@@ -17,5 +20,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 __sfc__.render = render
 
+__sfc__.__file = "bar.vue"
 __sfc__.__file = "bar.vue"
 export default __sfc__

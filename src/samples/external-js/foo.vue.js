@@ -1,5 +1,7 @@
-import './foo.vue.css';import __sfc__ from "./external.js"
+import './foo.vue.css';
+import __sfc__ from "./external.js"
 import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, vModelText as _vModelText, withDirectives as _withDirectives, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
+
 function render(_ctx, _cache) {
   return (_openBlock(), _createElementBlock(_Fragment, null, [
     _createElementVNode("h1", null, _toDisplayString(_ctx.msg), 1 /* TEXT */),
@@ -12,5 +14,6 @@ function render(_ctx, _cache) {
 }
 __sfc__.render = render
 
+__sfc__.__file = "foo.vue"
 __sfc__.__file = "foo.vue"
 export default __sfc__

@@ -1,9 +1,11 @@
+import './setup.vue.css';
 import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, vModelText as _vModelText, withDirectives as _withDirectives, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
 
-import { ref } from 'vue'
+import { ref } from "vue"
 
 
 const __sfc__ = {
+  __name: 'setup',
   setup(__props) {
 
 const msg = ref('Hello World!')
@@ -23,5 +25,6 @@ return (_ctx, _cache) => {
 }
 
 
+__sfc__.__file = "setup.vue"
 __sfc__.__file = "setup.vue"
 export default __sfc__

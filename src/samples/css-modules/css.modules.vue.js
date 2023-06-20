@@ -1,4 +1,5 @@
 import style0 from './css.modules.vue.0.module.css';
+
 const __sfc__ = {
   data() {
     return {
@@ -8,6 +9,7 @@ const __sfc__ = {
 }
 
 import { normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (_openBlock(), _createElementBlock(_Fragment, null, [
     _createElementVNode("p", {
@@ -23,4 +25,5 @@ const cssModules= {}
 cssModules["$style"] = style0
 __sfc__.__file = "css.modules.vue"
 __sfc__.__cssModules = cssModules
+__sfc__.__file = "css.modules.vue"
 export default __sfc__

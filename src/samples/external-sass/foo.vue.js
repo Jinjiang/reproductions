@@ -1,4 +1,5 @@
-import './external.scss';const __sfc__ = {}
+import './external.scss';
+const __sfc__ = {}
 import { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
 
 const _hoisted_1 = /*#__PURE__*/_createElementVNode("ul", null, [
@@ -15,10 +16,12 @@ const _hoisted_1 = /*#__PURE__*/_createElementVNode("ul", null, [
 const _hoisted_2 = [
   _hoisted_1
 ]
+
 function render(_ctx, _cache) {
   return (_openBlock(), _createElementBlock("nav", null, _hoisted_2))
 }
 __sfc__.render = render
 
+__sfc__.__file = "foo.vue"
 __sfc__.__file = "foo.vue"
 export default __sfc__
