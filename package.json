@@ -2,6 +2,11 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node ./scripts/run.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy": "^1.18.1",
+    "vite": "^4.3.9"
   }
 }
