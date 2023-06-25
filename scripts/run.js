@@ -8,13 +8,14 @@ const runProxy = async () => {
   const proxy = httpProxy.createProxyServer();
 
   app.use('*', (req, res) => {
-    const target = `http://localhost:3000${req.originalUrl}`;
-  
+    // const target = `http://localhost:3000${req.originalUrl}`;
+    const target = `http://localhost:3000`;
+    req.url = req.originalUrl;
     proxy.web(req, res, {
       target,
       ws: true,
-      preserveHeaderKeyCase: true,
-      ignorePath: true,
+      // preserveHeaderKeyCase: true,
+      // ignorePath: true,
       // xfwd: true,
     });
   })
