@@ -3,5 +3,5 @@ How to reproduce:
 ```bash
 pnpm install
 pnpm dev
-# see comments in `main.js`
+# then uncomment the `<script>` in `index.html`
 ```
