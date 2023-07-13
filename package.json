@@ -2,6 +2,11 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "sass": "^1.63.6",
+    "vite": "^4.4.3"
   }
 }
