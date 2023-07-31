@@ -1,0 +1,89 @@
+---
+labels: ['vue', 'env', 'vue components']
+description: 'A Vue environment for building Vue components.'
+---
+
+import { EnvOverview } from '@teambit/envs.docs.env-overview-template';
+
+<EnvOverview description='This env provides a development environment for Vue components.'
+  logo= {{
+    name: 'Vue',
+    icon: 'https://static.bit.dev/extensions-icons/vue.svg',
+    background: '#476582'
+  }} 
+  tools = {{
+    developmentTools: [
+      {
+        name: 'TypeScript',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/tsconfig.json',
+        ],
+      },
+      {
+        name: 'Jest',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/jest.config.js',
+        ],
+      },
+      {
+        name: 'ESLint',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/eslintrc.js',
+        ],
+      },
+      {
+        name: 'Prettier',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/prettier.config.js',
+        ],
+      },
+    ],
+    buildPipeline: [
+      {
+        name: 'TypeScript',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/tsconfig.json',
+        ],
+      },
+      {
+        name: 'ESLint',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/eslintrc.js',
+        ],
+      },
+      {
+        name: 'Jest',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/jest.config.js',
+        ],
+      },
+    ],
+    previewsAndDocs: [
+      {
+        name: 'Component Preview',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/preview/mounter.tsx',
+        ],
+      },
+      {
+        name: 'Component Docs',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/preview/docs.tsx',
+        ],
+      },
+      {
+        name: 'Webpack',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/webpack.config.ts',
+        ],
+      },
+      {
+        name: 'Webpack Dev Server',
+        configFiles: [
+          'https://bit.cloud/teambit/vue/vue/~code/config/webpack.config.ts',
+        ],
+      },
+    ],
+  }}
+  envId='teambit.vue/vue'
+  docsLink='https://bit.dev/docs/vue-intro' />
