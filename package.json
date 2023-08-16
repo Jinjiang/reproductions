@@ -2,6 +2,14 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:vite": "vite build",
+    "build:webpack": "webpack",
+    "build": "npm run build:webpack && npm run build:vite"
+  },
+  "dependencies": {
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
