@@ -1,7 +1,15 @@
 {
   "name": "reproduce",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "compile": "node compile.js",
+    "start": "npm run compile && vite"
+  },
+  "dependencies": {
+    "vite": "^4.4.9",
+    "vue": "^3.3.4",
+    "vue-simple-compiler": "^0.0.5"
   }
 }
