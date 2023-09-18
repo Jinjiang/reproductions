@@ -5,7 +5,10 @@ const config = defineConfig({
   // // This works
   // root: './',
   // This doesn't
-  root: './node_modules/.bit_roots/foo',
+  root: './node_modules/.bit_roots/react.examples.vite-app/node_modules/@teambit/react.examples.vite-app/dist',
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react/jsx-runtime'],
+  },
   plugins: [react()],
 });
 
