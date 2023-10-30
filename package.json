@@ -20,7 +20,6 @@
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
-    "start": "webpack serve --hot",
-    "build": "cross-env NODE_ENV=production webpack"
+    "start": "webpack serve --hot"
   }
 }
