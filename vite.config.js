@@ -1,3 +1,5 @@
+process.env.VITE_TEST_2 = '456'
+
 export default {
   define: {
     __APP_ENV__: JSON.stringify({
