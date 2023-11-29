@@ -1,0 +1,1 @@
+console.log(__APP_ENV__)

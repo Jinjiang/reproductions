@@ -2,5 +2,5 @@ How to reproduce:
 
 ```bash
 pnpm install
-pnpm dev
+VITE_TEST=123 pnpm dev
 ```
