@@ -8,8 +8,11 @@
     "test:node": "node ./node-apis/run-test.mjs"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.8",
     "@mdx-js/rollup": "^3.0.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
