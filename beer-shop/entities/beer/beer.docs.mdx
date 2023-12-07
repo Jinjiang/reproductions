@@ -1,0 +1,35 @@
+---
+labels: ['beer', 'entity']
+description: 'A Beer entity.'
+---
+
+A component for a user entity, supports serialization and deseralization of user objects and can be used from
+both backend and frontend.
+
+## Deserializing from a plain user object 
+
+Use the `.from` method to deserialize a plain user object to a `User` entity.
+
+```ts
+const user = Beer.from({
+  name: 'ranm8',
+});
+console.log(user);
+// echos { name: 'ranm8' }
+```
+
+## Serializing to a plain object
+
+Use the `user.toObject()` method to serailize a `User` object to a plain object.
+
+```ts
+import { User } from '@bitdev/node.examples.user';
+
+const user = User.from({
+  name: 'ranm8'
+});
+
+const plainObject = user.toObject();
+console.log(plainObject);
+// echos {name: 'ranm8'}
+```

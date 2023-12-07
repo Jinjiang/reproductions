@@ -1,0 +1,6 @@
+// bit-generated-eslint-config
+{
+  "extends": [
+    "./../../node_modules/.cache/.eslintrc.bit.b7bc9971408002af892e9aa3d1004350af7ce944.json"
+  ]
+}
