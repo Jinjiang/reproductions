@@ -5,9 +5,11 @@ pnpm install
 
 # it works
 pnpm dev
-# it doesn't
+# it doesn't with 5 issues
 pnpm test
 ```
+
+an extra requirement: the content in package `foo-esm` `foo-cjs` might be changed, so we need to watch them.
 
 error log in terminal:
 
