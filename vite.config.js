@@ -1,18 +1,13 @@
 const modules = ['foo-cjs', 'foo-esm']
 
 module.exports = {
-  // doesn't work as expected
-  server: {
-    watch: {
-      ignored: modules.map((m) => `!**/node_modules/${m}/**`)
-    }
-  },
-  // doesn't work as expected
-  optimizeDeps: {
-    exclude: modules
+  resolve: {
+    mainFields: ['module', 'main']
   },
   test: {
     globals: true,
+    // toggle to see the difference
+    environment: 'jsdom',
     server: {
       deps: {
         inline: modules
