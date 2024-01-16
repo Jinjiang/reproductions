@@ -1,10 +1,48 @@
 import fs from 'node:fs/promises'
 import express from 'express'
+import findRoot from 'find-root'
+import { createRequire } from 'node:module';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
+
+//////// CONFIG START ////////
+
+// For dev mode only
+// - 0: normal config
+// - 1: testing config with issue
+const projectIndex = 1
+
+const require = createRequire(import.meta.url);
+const resolvedButton = require.resolve('@bitdev/react.examples.button')
+const buttonRoot = findRoot(resolvedButton)
+
+const htmlEntry = [
+  './index.html',
+  `${buttonRoot}/index.html`,
+]
+const serverEntry = [
+  '/src/entry-server.jsx',
+  'server.tsx',
+]
+
+const configs = [
+  {
+    server: { middlewareMode: true },
+    appType: 'custom',
+    base
+  },
+  {
+    root: buttonRoot,
+    server: { middlewareMode: true },
+    appType: 'custom',
+    base
+  },
+]
+
+//////// CONFIG END ////////
 
 // Cached production assets
 const templateHtml = isProduction
@@ -21,11 +59,7 @@ const app = express()
 let vite
 if (!isProduction) {
   const { createServer } = await import('vite')
-  vite = await createServer({
-    server: { middlewareMode: true },
-    appType: 'custom',
-    base
-  })
+  vite = await createServer(configs[projectIndex])
   app.use(vite.middlewares)
 } else {
   const compression = (await import('compression')).default
@@ -43,9 +77,9 @@ app.use('*', async (req, res) => {
     let render
     if (!isProduction) {
       // Always read fresh template in development
-      template = await fs.readFile('./index.html', 'utf-8')
+      template = await fs.readFile(htmlEntry[projectIndex], 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
+      render = (await vite.ssrLoadModule(serverEntry[projectIndex])).render
     } else {
       template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
