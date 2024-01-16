@@ -18,3 +18,11 @@ Uncaught SyntaxError: The requested module '/@fs/xxxxxx/react-ssr/node_modules/.
 This reproduction is based on the official react ssr example: https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-react
 
 it works if we set the root dir back to `'.'` (by changing the value in `server.js:L16` to `0`).
+
+to reset node registry:
+
+```
+npm config delete '@bitdev:registry'
+npm config delete '@bitdesign:registry'
+npm config delete '@teambit:registry'
+```
