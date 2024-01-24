@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "declaration": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "target": "es2020",
+    "lib": ["esnext", "dom", "dom.Iterable"],
+    "experimentalDecorators": true,
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "dist",
+    "package.json"
+  ],
+  "include": [
+    "**/*",
+    "**/*.json"
+  ]
+}
