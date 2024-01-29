@@ -1,0 +1,17 @@
+.DS_Store
+
+node_modules
+pnpm-lock.yaml
+
+dist
+public
+
+output*.txt
+error*.txt
+*.tar
+
+tsconfig.json
+.eslintrc.json
+.prettierrc.cjs
+
+!**/*-env/config/tsconfig.json
