@@ -1,14 +1,6 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { App } from "app";
+import { render } from "platform";
 import "header";
 import "people";
+import { App } from "app";
 
-export const render = () => {
-  const rootElement = document.getElementById("app");
-  if (rootElement) {
-    createRoot(rootElement).render(<App />);
-  }
-}
-
-render();
+render(App);
