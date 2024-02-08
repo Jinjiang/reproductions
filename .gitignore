@@ -10,8 +10,8 @@ output*.txt
 error*.txt
 *.tar
 
-tsconfig.json
-.eslintrc.json
-.prettierrc.cjs
+# tsconfig.json
+# .eslintrc.json
+# .prettierrc.cjs
 
-!**/*-env/config/tsconfig.json
+# !**/*-env/config/tsconfig.json
