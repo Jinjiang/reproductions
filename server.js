@@ -37,10 +37,18 @@ const configs = [
   {
     root: buttonRoot,
     server: { middlewareMode: true },
+    optimizeDeps: {
+      entries: [
+        `${buttonRoot.replace(/\+/g, '\\+')}/index.html`,
+        // `index.html`,
+      ],
+    },
     appType: 'custom',
     base
   },
 ]
+
+// console.log(configs[projectIndex])
 
 //////// CONFIG END ////////
 
