@@ -39,7 +39,8 @@ const configs = [
     server: { middlewareMode: true },
     optimizeDeps: {
       entries: [
-        `${buttonRoot.replace(/\+/g, '\\+')}/index.html`,
+        `${buttonRoot}/index.html`,
+        // Or:
         // `index.html`,
       ],
     },
