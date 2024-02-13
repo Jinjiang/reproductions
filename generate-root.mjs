@@ -8,7 +8,7 @@ const getAspectRuntime = (aspect, runtimeName) => {
   return null
 }
 
-const generateRoot = (runtimeName, platformAspect, aspectList) => {
+export const generateRoot = (runtimeName, platformAspect, aspectList) => {
   const platformRuntime = getAspectRuntime(platformAspect, runtimeName)
   const platformTrigger = runtimeName === 'browser' ? 'render' : 'run'
   const platformImport = `import { ${platformTrigger} } from "${platformRuntime}";`
@@ -18,15 +18,7 @@ const generateRoot = (runtimeName, platformAspect, aspectList) => {
   })
   const imports = [platformImport, ...aspectImports].join('\n')
   const rootContent = `${imports}\n\n${platformTrigger}();`
-  fs.writeFileSync(`./root.${runtimeName}.mjs`, rootContent)
+  const rootPath = `root.${runtimeName}.mjs`
+  fs.writeFileSync(rootPath, rootContent)
+  return rootPath
 }
-
-;['node', 'browser'].forEach(runtimeName => {
-  generateRoot(
-    runtimeName,
-    { path: 'platform-a', name: 'platform-a', packageName: 'platform-a' }, [
-      { path: 'header', name: 'header', packageName: 'header' },
-      { path: 'people', name: 'people', packageName: 'people' }
-    ]
-  )
-})
