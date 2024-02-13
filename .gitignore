@@ -10,6 +10,8 @@ output*.txt
 error*.txt
 *.tar
 
+TODO
+
 # tsconfig.json
 # .eslintrc.json
 # .prettierrc.cjs
