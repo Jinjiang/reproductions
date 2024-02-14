@@ -1,7 +1,15 @@
 {
   "name": "reproduce",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "node-stdlib-browser": "^1.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.1",
+    "vite-plugin-node-polyfills": "^0.21.0"
   }
 }
