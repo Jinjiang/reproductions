@@ -2,6 +2,10 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vitepress",
+    "build": "vitepress build"
+  },
+  "dependencies": {
+    "vitepress": "1.0.0-rc.43"
   }
 }
