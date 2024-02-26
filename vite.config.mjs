@@ -3,10 +3,15 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  // ssr: {
-  //   noExternal: [
-  //     'lodash',
-  //     'foo',
-  //   ]
-  // }
+  ssr: {
+    optimizeDeps: {
+      include: [
+        'lodash',
+      ]
+    },
+    noExternal: [
+      /@zhaojinjiang/,
+      'lodash',
+    ]
+  }
 })
