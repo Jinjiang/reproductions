@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [react()],
   ssr: {
     optimizeDeps: {
       include: [
-        'lodash',
+        '@zhaojinjiang/temp.vite-ssr-20240226.bar',
       ]
     },
     noExternal: [

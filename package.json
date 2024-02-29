@@ -1,16 +1,17 @@
 {
   "name": "reproduce",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "node start.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "@zhaojinjiang/temp.vite-ssr-20240226.foo": "^0.0.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@zhaojinjiang/temp.vite-ssr-20240226.bar": "^0.0.1",
     "express": "^4.18.2",
-    "sass": "^1.71.1",
-    "vite": "^5.1.4",
-    "vue": "^3.4.19"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^5.1.4"
   }
 }
