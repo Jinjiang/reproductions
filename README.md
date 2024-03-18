@@ -1,10 +1,6 @@
 How to reproduce:
 
 ```
-npm config set '@bitdev:registry' https://node-registry.bit.cloud
-npm config set '@bitdesign:registry' https://node-registry.bit.cloud
-npm config set '@teambit:registry' https://node-registry.bit.cloud
-
 pnpm install
 pnpm dev
 ```
