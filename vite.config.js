@@ -6,7 +6,6 @@ export default defineConfig({
   plugins: [react()],
   ssr: {
     noExternal: [
-      /@bitdesign\//,
     ]
   }
 })
