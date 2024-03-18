@@ -31,3 +31,5 @@ to:
 ```js
 export * from './foo.vue.js'
 ```
+
+, however by doing this, the type inference would fail.
