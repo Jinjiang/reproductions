@@ -6,18 +6,6 @@ const isProduction = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
 
-//////// CONFIG START ////////
-
-const htmlEntry = './index.html'
-const serverEntry = '/src/entry-server.jsx'
-const config = {
-  server: { middlewareMode: true },
-  appType: 'custom',
-  base
-}
-
-//////// CONFIG END ////////
-
 // Cached production assets
 const templateHtml = isProduction
   ? await fs.readFile('./dist/client/index.html', 'utf-8')
@@ -33,7 +21,11 @@ const app = express()
 let vite
 if (!isProduction) {
   const { createServer } = await import('vite')
-  vite = await createServer(config)
+  vite = await createServer({
+    server: { middlewareMode: true },
+    appType: 'custom',
+    base
+  })
   app.use(vite.middlewares)
 } else {
   const compression = (await import('compression')).default
@@ -51,9 +43,9 @@ app.use('*', async (req, res) => {
     let render
     if (!isProduction) {
       // Always read fresh template in development
-      template = await fs.readFile(htmlEntry, 'utf-8')
+      template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule(serverEntry)).render
+      render = (await vite.ssrLoadModule('/src/entry-server.js')).render
     } else {
       template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
@@ -65,7 +57,7 @@ app.use('*', async (req, res) => {
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
 
-    res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
+    res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
     vite?.ssrFixStacktrace(e)
     console.log(e.stack)
