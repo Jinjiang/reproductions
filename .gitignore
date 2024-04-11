@@ -1,0 +1,23 @@
+node_modules*
+# public
+
+output*.txt
+error*.txt
+
+.vite
+backups
+
+dist*
+.entries/*
+logs/*
+
+pnpm-lock.yaml
+
+tsconfig.json
+.eslintrc.json
+.prettierrc.cjs
+
+!**/*-env/config/tsconfig.json
+
+.nuxt
+.output
