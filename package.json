@@ -1,0 +1,10 @@
+{
+  "name": "try-nuxt-build",
+  "dependencies": {
+    "@nuxt/kit": "^3.11.2",
+    "@nuxt/schema": "^3.11.2",
+    "c12": "^1.10.0",
+    "nuxi": "^3.11.1",
+    "nuxt": "^3.11.2"
+  }
+}
