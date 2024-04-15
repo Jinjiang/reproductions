@@ -1,11 +1,5 @@
-<!-- eslint-disable -->
-
 <template>
   <div>
-    <NuxtLayout>
-      <!-- <NuxtWelcome /> -->
-      <HelloWorld />
-      <NuxtPage />
-    </NuxtLayout>
+    <NuxtWelcome />
   </div>
 </template>
