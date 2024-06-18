@@ -2,6 +2,12 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0"
   }
 }
