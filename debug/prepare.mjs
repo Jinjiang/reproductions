@@ -11,7 +11,7 @@ const appDirList = [
 
 console.log('appDirList', appDirList);
 
-Promise.all(appDirList.map(async appDir => {
+for await (const appDir of appDirList) {
   const loadingNuxt = import('nuxt/kit');
   const { loadNuxt, buildNuxt, writeTypes } = await loadingNuxt;
   try {
@@ -36,4 +36,4 @@ Promise.all(appDirList.map(async appDir => {
   }`;
   console.log(`Writing tsconfig.json to ${tsconfigPath}`);
   writeFileSync(tsconfigPath, tsconfigContent);
-}))
+}

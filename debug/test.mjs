@@ -23,18 +23,18 @@ const test = async (appName, index) => {
     },
   }
   
-  console.log(index, baseConfig)
+  // console.log(index, baseConfig)
   
   const customConfig = (await loadConfigFromFile({
     command: 'build',
     mode: 'development'
   }, configPath, rootPath))?.config;
   
-  console.log(index, customConfig)
+  // console.log(index, customConfig)
   
   const config = mergeConfig(baseConfig, customConfig);
   
-  console.log(index, config)
+  // console.log(index, config)
   
   const vitest = await startVitest('test', undefined, undefined, config, {});
   await vitest.close();
@@ -46,4 +46,6 @@ const appNames = [
   'my-nuxtjs-app',
 ]
 
-Promise.all(appNames.map((appName, index) => test(appName, index)))
+for await (const appName of appNames) {
+  await test(appName, appNames.indexOf(appName));
+}
