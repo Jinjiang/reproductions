@@ -2,6 +2,12 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
+    "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/hammerjs": "^2.0.45",
+    "hammerjs": "^2.0.8",
+    "vite": "^5.3.4"
   }
 }
