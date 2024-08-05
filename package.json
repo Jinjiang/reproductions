@@ -3,5 +3,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@bitdev/vue.examples.hello-world": "0.0.0-82a803839c29eb456a89b13ddc4215f83441293c"
   }
 }
