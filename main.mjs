@@ -1,5 +1,31 @@
-import preview from 'C:\\Users\\zhaoj\\code\\reproductions\\node_modules\\preview\\preview.js';
-import local from 'C:\\Users\\zhaoj\\code\\reproductions\\node_modules\\local\\local.js';
-import x from 'C:\\Users\\zhaoj\\code\\reproductions\\node_modules\\prexview\\x.vue';
+// it works
+import './app.mjs?1';
+// it works
+import '/C:/Users/zhaoj/code/reproductions/app.mjs?2';
+// it works
+import '/@fs/C:/Users/zhaoj/code/reproductions/app.mjs?3';
+// it works
+import 'C:\\Users\\zhaoj\\code\\reproductions\\app.mjs?4';
+// it works
+import '/@fs/C:\\Users\\zhaoj\\code\\reproductions\\app.mjs?5';
 
-console.log('main.mjs', { preview, local, x });
+// it works
+import foo1 from 'foo/foo.cjs';
+
+// it works
+import foo2 from '/C:/Users/zhaoj/code/reproductions/node_modules/foo/foo.cjs';
+// it works
+import foo3 from '/@fs/C:/Users/zhaoj/code/reproductions/node_modules/foo/foo.cjs';
+
+// it doesn't
+import foo4 from 'C:\\Users\\zhaoj\\code\\reproductions\\node_modules\\foo\\foo.cjs';
+// it doesn't
+import foo5 from '/@fs/C:\\Users\\zhaoj\\code\\reproductions\\node_modules\\foo\\foo.cjs';
+
+console.log({
+  foo1,
+  foo2,
+  foo3,
+  foo4,
+  foo5,
+})
