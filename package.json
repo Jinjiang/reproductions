@@ -2,6 +2,7 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
+    "dev": "node debug/init.mjs && node debug/run.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
