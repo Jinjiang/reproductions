@@ -28,7 +28,7 @@ export const files = {
 
 // 1. replace \ with / for windows
 // 2. add / in front of the path
-export const formattedFiles = {
+export const formattedFilesForWindows = {
   ...files,
   main: format(files.main),
   local: format(files.local),
@@ -38,4 +38,4 @@ export const formattedFiles = {
 
 // console.log(files)
 
-// console.log(formattedFiles)
+// console.log(formattedFilesForWindows)

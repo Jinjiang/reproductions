@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "node debug/init.mjs && node debug/run.mjs",
+    "dev:win": "node debug/init-win.mjs && node debug/run-win.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
