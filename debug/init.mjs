@@ -34,5 +34,5 @@ function escaptPath(path) {
 writeFileSync(files.index, `<script type="module" src="${files.main}"></script>`)
 writeFileSync(files.main, `import p from '${escaptPath(files.preview)}'\nimport l from '${escaptPath(files.local)}'\n\nconsole.log(p)\nconsole.log(l)`)
 writeFileSync(files.local, `import foo from '${escaptPath(files.foo)}'\n\nconsole.log(foo)\n\nexport default 'local'`)
-writeFileSync(files.preview, `module.exports = 'preview'`)
-writeFileSync(files.foo, `module.exports = 'foo'`)
+// writeFileSync(files.preview, `module.exports = 'preview'`)
+// writeFileSync(files.foo, `module.exports = 'foo'`)
