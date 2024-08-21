@@ -8,7 +8,7 @@ export const __dirname2 = dirname(new URL(import.meta.url).pathname)
 
 function format(path) {
   if (sep === win32.sep) {
-    return '/' + files.main.replace(/\\/g, '/')
+    return '/' + path.replace(/\\/g, '/')
   }
   return path
 }
