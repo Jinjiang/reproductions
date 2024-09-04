@@ -1,6 +1,2 @@
 @import './foo.css';
 @import '~@test/foo/foo.css';
-
-:host {
-  display: block;
-}

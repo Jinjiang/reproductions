@@ -4,7 +4,7 @@ import { format } from '../../utils/utils';
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.css',
-  // styleUrls: ['my-component.css', 'foo.css'],
+  // styleUrls: ['foo.css', '~@test/foo/foo.css'],
   shadow: true,
 })
 export class MyComponent {
