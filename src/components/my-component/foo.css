@@ -1,0 +1,14 @@
+:root {
+  --foo-root: 1;
+}
+
+body {
+  --foo-body: 2;
+}
+
+:host {
+  --foo-host: 3;
+  div {
+    --foo-div: 4;
+  }
+}
