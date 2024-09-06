@@ -2,6 +2,7 @@
   "name": "try-stencil",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
+  "type": "module",
   "main": "dist/components/index.js",
   "types": "dist/types/index.d.ts",
   "repository": {
