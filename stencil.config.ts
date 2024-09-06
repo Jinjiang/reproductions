@@ -3,7 +3,7 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   namespace: 'try-stencil',
   outputTargets: [
-    { type: 'dist' },
+    { type: 'dist-custom-elements', customElementsExportBehavior: 'auto-define-custom-elements' },
     // {
     //   type: 'dist',
     //   esmLoaderPath: '../loader',

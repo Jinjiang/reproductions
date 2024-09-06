@@ -18,7 +18,7 @@
   },
   "include": [
     "src"
-  ],
+, "my-component/utils"  ],
   "exclude": [
     "node_modules"
   ]
