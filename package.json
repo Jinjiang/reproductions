@@ -16,11 +16,6 @@
     "./my-component": {
       "import": "./dist/components/my-component.js",
       "types": "./dist/components/my-component.d.ts"
-    },
-    "./loader": {
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
     }
   },
   "repository": {
@@ -28,8 +23,7 @@
     "url": "https://github.com/ionic-team/stencil-component-starter.git"
   },
   "files": [
-    "dist/",
-    "loader/"
+    "dist/"
   ],
   "scripts": {
     "debug": "node ./debug/run.mjs",
