@@ -5,11 +5,18 @@ import {
   configComponentDevFactory,
 } from '@teambit/react.webpack.react-webpack';
 import { WebpackConfigMutator } from '@teambit/webpack.modules.config-mutator';
+import { fileURLToPath } from 'url';
+import { resolve } from 'path';
+import webpack from 'webpack';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+console.log(__dirname);
 
 function createDevServerTransformers(
   context,
   workspace
 ) {
+  console.log({ context, workspace });
   const baseConfig = configBaseFactory(false);
   const baseDevConfig = configBaseDevFactory({
     workspaceDir: workspace.path,
@@ -41,6 +48,20 @@ const transformer = createDevServerTransformers(
   { path: process.cwd() }
 )
 
-const config = new WebpackConfigMutator({});
+const config = new WebpackConfigMutator({
+  entry: './debug/webpack/main.mjs',
+  mode: 'development',
+  output: {
+    path: resolve(__dirname, 'dist'),
+  }
+});
 
 console.log(transformer(config).raw);
+
+webpack(transformer(config).raw, (err, stats) => {
+  if (err || stats.hasErrors()) {
+    console.error(err || stats.toJson().errors);
+  } else {
+    console.log('Compilation successful');
+  }
+});
