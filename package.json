@@ -15,6 +15,7 @@
   "scripts": {
     "debug": "node ./debug/run.mjs",
     "debug:webpack": "node ./debug/webpack/webpack.config.mjs",
+    "debug:webpack:preview": "http-server ./debug/webpack",
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
@@ -25,6 +26,7 @@
     "@stencil/core": "^4.7.0",
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
+    "http-server": "^14.1.1",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "puppeteer": "^21.9.0",
