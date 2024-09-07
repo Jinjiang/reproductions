@@ -56,7 +56,7 @@ const config = new WebpackConfigMutator({
   }
 });
 
-console.log(transformer(config).raw);
+// console.log(transformer(config).raw);
 
 webpack(transformer(config).raw, (err, stats) => {
   if (err || stats.hasErrors()) {
