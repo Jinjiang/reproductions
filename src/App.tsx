@@ -3,8 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import { BasicMyComponent } from "foo/dist/my-component.composition.js";
-// import { BasicMyComponent } from "../node_modules/foo/dist/my-component.composition.js";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { MyComponent } from "foo";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,7 +21,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <BasicMyComponent />
+      <MyComponent />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
