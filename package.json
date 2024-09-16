@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@teambit/vite.plugins.vite-plugin-react": "^0.0.1",
     "@types/node": "^22.5.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
