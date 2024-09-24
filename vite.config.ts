@@ -7,5 +7,10 @@ export default defineConfig({
     include: [
       './test/**/*.spec.*'
     ],
+    server: {
+      deps: {
+        inline: ['foo'],
+      }
+    }
   },
 })
