@@ -1,5 +1,6 @@
 {
   "name": "reproduce",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "vite",
