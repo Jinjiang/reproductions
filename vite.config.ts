@@ -77,19 +77,39 @@ function wrapWithScopeContext() {
       return identifiers.concat(newIds);
     }, []);
 
-    // const preNode = {
-    //   type: 'jsx',
-    //   value: `<MDXScopeProvider components={{${ids.join(', ')}}}>`,
-    // };
-
-    // const postNode = {
-    //   type: 'jsx',
-    //   value: `</MDXScopeProvider>`,
-    // };
-
     const importNode = {
-      type: 'mdxjsEsm',
-      value: `import { MDXScopeProvider } from '@teambit/mdx.ui.mdx-scope-context';`,
+      "type": "mdxjsEsm",
+      "value": "import { MDXScopeProvider } from '@teambit/mdx.ui.mdx-scope-context';",
+      "data": {
+        "estree": {
+          "type": "Program",
+          "body": [
+            {
+              "type": "ImportDeclaration",
+              "specifiers": [
+                {
+                  "type": "ImportSpecifier",
+                  "imported": {
+                    "type": "Identifier",
+                    "name": "MDXScopeProvider"
+                  },
+                  "local": {
+                    "type": "Identifier",
+                    "name": "MDXScopeProvider"
+                  },
+                }
+              ],
+              "source": {
+                "type": "Literal",
+                "value": "@teambit/mdx.ui.mdx-scope-context",
+                "raw": "'@teambit/mdx.ui.mdx-scope-context'"
+              },
+            }
+          ],
+          "sourceType": "module",
+          "comments": []
+        }
+      }
     };
 
     const wrapNode = {
@@ -105,10 +125,8 @@ function wrapWithScopeContext() {
       children: [],
     };
 
-    console.log('[before]', JSON.stringify(tree, null, 2));
-    wrapNode.children.push(...tree.children);
+    (wrapNode.children as Array<any>).push(...tree.children);
     tree.children = [importNode, wrapNode];
-    console.log('[after]', JSON.stringify(tree, null, 2));
   };
 }
 
@@ -132,7 +150,7 @@ export default defineConfig({
       ],
 
       rehypePlugins: [
-        wrapWithScopeContext
+        wrapWithScopeContext,
       ],
 
       // renderer: DEFAULT_RENDERER,
