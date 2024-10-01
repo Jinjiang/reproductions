@@ -8,9 +8,13 @@
   "dependencies": {
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
+    "@teambit/design.themes.theme-toggler": "^0.1.45",
+    "@teambit/mdx.ui.mdx-layout": "^1.0.9",
+    "@teambit/mdx.ui.mdx-scope-context": "^1.0.7",
     "@vitejs/plugin-react": "^4.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sass-embedded": "^1.79.4",
     "vite": "^5.4.8"
   }
 }
