@@ -21,7 +21,7 @@ export function App() {
   return (
     <ThemeSwitcher defaultTheme={'light'}>
       <MDXLayout>
-        <div>hello world</div>
+        {/* <div>hello world</div> */}
         <Content />
       </MDXLayout>
     </ThemeSwitcher>
