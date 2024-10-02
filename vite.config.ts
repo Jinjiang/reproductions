@@ -2,13 +2,52 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 
-// import remarkNotes from 'remark-admonitions';
+import remarkDirective from 'remark-directive';
 import { default as detectFrontmatter} from 'remark-frontmatter';
 
 import yaml from 'yaml';
+import { h } from 'hastscript'
 import { visit } from 'unist-util-visit';
 import { remove } from 'unist-util-remove';
 import detectiveEs6 from '@teambit/node.deps-detectors.detective-es6';
+
+const AdmonitionsNameList = [
+  `important`,
+  `tip`,
+  `note`,
+  `warning`,
+  `danger`,
+  `info`,
+  `success`,
+  `secondary`,
+]
+const AdmonitionsMap = {
+  info: `important`,
+  success: `tip`,
+  secondary: `note`,
+  danger: `warning`,
+}
+
+function adaptAdmonitions() {
+  return function (tree) {
+    visit(tree, (node) => {
+      if (
+        node.type === 'containerDirective' ||
+        node.type === 'leafDirective' ||
+        node.type === 'textDirective'
+      ) {
+        if (!AdmonitionsNameList.includes(node.name)) return
+        node.name = AdmonitionsMap[node.name] || node.name
+
+        const data = node.data || (node.data = {})
+        const tagName = node.type === 'textDirective' ? 'span' : 'div'
+
+        data.hName = tagName
+        data.hProperties = h(tagName, node.attributes || {}).properties
+      }
+    })
+  }
+}
 
 function extractMetadata() {
   return function transformer(tree, file) {
@@ -142,11 +181,11 @@ export default defineConfig({
     react(),
     mdx({
       remarkPlugins: [
-        // TODO: remark-directive
-        // remarkNotes,
+        remarkDirective,
         [detectFrontmatter, ['yaml']],
         extractMetadata,
         extractImports,
+        adaptAdmonitions,
       ],
 
       rehypePlugins: [
