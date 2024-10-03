@@ -1,0 +1,13 @@
+.admonition-heading {
+  font-weight: 700;
+  font-size: var(--bit-h-xxs, 16px);
+  margin: 0;
+  margin-right: 8px;
+}
+
+.admonition-content p {
+  margin: 0 0 1em;
+}
+.admonition-content p + p {
+  margin-bottom: 0;
+}

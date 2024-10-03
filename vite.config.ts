@@ -10,6 +10,8 @@ import { visit } from 'unist-util-visit';
 import { remove } from 'unist-util-remove';
 import detectiveEs6 from '@teambit/node.deps-detectors.detective-es6';
 
+import icons from './icons.mjs';
+
 const AdmonitionsNameList = [
   `important`,
   `tip`,
@@ -19,6 +21,7 @@ const AdmonitionsNameList = [
   `info`,
   `success`,
   `secondary`,
+  `caution`,
 ]
 const AdmonitionsMap = {
   info: `important`,
@@ -26,27 +29,62 @@ const AdmonitionsMap = {
   secondary: `note`,
   danger: `warning`,
 }
+const AdmonitionsIcons = {
+  important: icons[0],
+  tip: icons[1],
+  note: icons[2],
+  warning: icons[3],
+  caution: icons[4],
+}
 
 function adaptAdmonitions() {
-  // https://github.com/elviswolcott/remark-admonitions/issues/49#issuecomment-1657047062
+  // https://github.com/elviswolcott/remark-admonitions/issues/49
+  // div.admonition.admonition-{name}
+  //   div.admonition-heading (optional)
+  //     span.admonition-icon
+  //       svg
+  //     h5 <title>
+  //   div.admonition-content
+  //     <content>
   return function (tree) {
     visit(tree, (node) => {
-      if (
-        node.type === 'containerDirective' ||
-        node.type === 'leafDirective' ||
-        node.type === 'textDirective'
-      ) {
+      if (node.type === 'textDirective') {
         if (!AdmonitionsNameList.includes(node.name)) return
         node.name = AdmonitionsMap[node.name] || node.name
 
-        const tagName = node.type === 'textDirective' ? 'span' : 'div'
         node.data = node.data || {}
-        node.data.hName = tagName
-        node.data.hProperties = { className: `admonition ${node.name}` }
+        node.data.hName = 'div'
+        node.data.hProperties = { className: `admonition admonition-${node.name}` }
 
-        if (node.children[0] && node.children[0].data && node.children[0].data.directiveLabel) {
-          node.children[0].data.hProperties = { className: 'admonition-label' }
+        let label = node.children[0]
+        if (label && label.data && label.data.directiveLabel) {
+          label.type = 'heading'
+          label.depth = 5
+          label.data.hProperties = { className: 'admonition-heading' }
+          const icon = {
+            data: {
+              hName: 'span',
+              hProperties: { className: 'admonition-icon' },
+            },
+            children: [AdmonitionsIcons[node.name]],
+          }
+          label.children.unshift(icon)
+          node.children.shift()
+        } else {
+          label = null
         }
+
+        node.children = [
+          label,
+          {
+            type: 'div',
+            data: {
+              hName: 'div',
+              hProperties: { className: 'admonition-content' },
+            },
+            children: node.children,
+          },
+        ].filter(Boolean)
       }
     })
   }
@@ -58,7 +96,6 @@ function extractMetadata() {
       try {
         // eslint-disable-next-line no-param-reassign
         file.data.frontmatter = yaml.parse(node.value, { prettyErrors: true });
-        // console.log('[extractMetadata]', file.data);
       } catch (err: any) {
         throw new Error(
           `failed extracting metadata/front-matter using Yaml lib, due to an error (please disregard the line/column): ${err.message}`
@@ -101,7 +138,6 @@ function extractImports() {
           isDefault: importSpecifier.isDefault,
         }));
       });
-      // console.log('[extractImports]', imports);
       // eslint-disable-next-line no-param-reassign
       (file.data.imports ||= []).push(...imports);
     });
