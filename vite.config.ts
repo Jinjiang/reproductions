@@ -6,7 +6,6 @@ import remarkDirective from 'remark-directive';
 import { default as detectFrontmatter} from 'remark-frontmatter';
 
 import yaml from 'yaml';
-import { h } from 'hastscript'
 import { visit } from 'unist-util-visit';
 import { remove } from 'unist-util-remove';
 import detectiveEs6 from '@teambit/node.deps-detectors.detective-es6';
@@ -29,6 +28,7 @@ const AdmonitionsMap = {
 }
 
 function adaptAdmonitions() {
+  // https://github.com/elviswolcott/remark-admonitions/issues/49#issuecomment-1657047062
   return function (tree) {
     visit(tree, (node) => {
       if (
@@ -39,11 +39,14 @@ function adaptAdmonitions() {
         if (!AdmonitionsNameList.includes(node.name)) return
         node.name = AdmonitionsMap[node.name] || node.name
 
-        const data = node.data || (node.data = {})
         const tagName = node.type === 'textDirective' ? 'span' : 'div'
+        node.data = node.data || {}
+        node.data.hName = tagName
+        node.data.hProperties = { className: `admonition ${node.name}` }
 
-        data.hName = tagName
-        data.hProperties = h(tagName, node.attributes || {}).properties
+        if (node.children[0] && node.children[0].data && node.children[0].data.directiveLabel) {
+          node.children[0].data.hProperties = { className: 'admonition-label' }
+        }
       }
     })
   }
