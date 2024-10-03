@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 
@@ -169,6 +169,21 @@ function wrapWithScopeContext() {
   };
 }
 
+function preMdxPlugin(): Plugin {
+  return {
+    name: 'pre-mdx-plugin',
+    enforce: 'pre',
+    transform(code, id) {
+      if (id.endsWith('.mdx')) {
+        // adapt remark-admonitions to remark-directive
+        // https://github.com/orgs/remarkjs/discussions/1374#discussioncomment-10818614
+        return code.replace(/:::(\w+) (.+)/, ':::$1[$2]');
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig({
   css: {
     preprocessorOptions: {
@@ -178,6 +193,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    preMdxPlugin(),
     react(),
     mdx({
       remarkPlugins: [
