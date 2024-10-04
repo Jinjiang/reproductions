@@ -4,13 +4,19 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@mdx-js/react': ^3.0.1
+  '@types/react': ^18.3.11
+  react: 18.3.1
+  react-dom: 18.3.1
+
 importers:
 
   .:
     dependencies:
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.3.10)(react@18.3.1)
+        version: 3.0.1(@types/react@18.3.11)(react@18.3.1)
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.22.5)
@@ -19,21 +25,24 @@ importers:
         version: 0.1.45(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@teambit/mdx.ui.mdx-layout':
         specifier: ^1.0.9
-        version: 1.0.9(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
+        version: 1.0.9(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
       '@teambit/mdx.ui.mdx-scope-context':
         specifier: ^1.0.7
-        version: 1.0.7(@types/react@18.3.10)(react@18.3.1)
+        version: 1.0.7(@types/react@18.3.11)(react@18.3.1)
       '@teambit/node.deps-detectors.detective-es6':
         specifier: ^0.0.6
         version: 0.0.6
+      '@types/react':
+        specifier: ^18.3.11
+        version: 18.3.11
       '@vitejs/plugin-react':
         specifier: ^4.3.2
         version: 4.3.2(vite@5.4.8(sass-embedded@1.79.4))
       react:
-        specifier: ^18.3.1
+        specifier: 18.3.1
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       remark-directive:
         specifier: ^3.0.0
@@ -323,16 +332,11 @@ packages:
   '@mdx-js/mdx@3.0.1':
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
 
-  '@mdx-js/react@1.6.22':
-    resolution: {integrity: sha512-TDoPum4SHdfPiGSAaRBw7ECyI8VaHpK8GJugbJIJuqyh6kzw9ZLJZW3HGL3NNrJGxcAixUvqROm+YuQOo5eXtg==}
-    peerDependencies:
-      react: ^16.13.1 || ^17.0.0
-
   '@mdx-js/react@3.0.1':
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
-      '@types/react': '>=16'
-      react: '>=16'
+      '@types/react': ^18.3.11
+      react: 18.3.1
 
   '@mdx-js/rollup@3.0.1':
     resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
@@ -436,302 +440,302 @@ packages:
     resolution: {integrity: sha512-XyW1orRKYcvaVw7M7orP0KolI7iilLuz4ebnLf7VPGkaDdv7GR4ghgVIx4rRTScZPGOfCq5/h6hKST6hz95sLw==}
     peerDependencies:
       '@testing-library/react': ^12.1.5
-      '@types/react': ^17.0.0
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      '@types/react': ^18.3.11
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-react.theme.theme-provider@1.95.3':
     resolution: {integrity: sha1-CBX15Vnm/ZI8JgjJKI170gnN0r8=}
     deprecated: No longer maintained, use teambit.base-react/themes/theme-provider
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-react.themes.theme-switcher@1.0.2':
     resolution: {integrity: sha1-ohfnPt23FmLPqATiPMmBwSeIpIA=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.elements.icon@1.0.0':
     resolution: {integrity: sha512-qaoHLbt6wNXzgST7N3oE+1hI/PttCzrSLQ9B7d/7yKKxUbHbhjoMX0+wViJxlQq3PYnb8LOHDzwvylfZoeBgKQ==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.input.error@1.0.3':
     resolution: {integrity: sha1-u786FrWekFm9ZXJNbAtguAA+wE0=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.routing.compare-url@1.0.1':
     resolution: {integrity: sha512-Ef+F8XwYaVPFAQwW0vER6YMf7N8aRG50geMmx+l8tPMYtoduPHvbkwUnHcoUmtLZnDYX8S6UONGg/ySVUlKjWA==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.surfaces.split-pane.hover-splitter@1.0.0':
     resolution: {integrity: sha512-sbN1AgGvc3lzoeWg7KQrYD9lCa4V9s0EctfZSrPCwy/UcHGePgMipBOWJkcNwuq8GGhzSTzH8rP8McWCLUGdew==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.surfaces.split-pane.layout@1.0.0':
     resolution: {integrity: sha512-Ib4sVeQYp3NU8zz6lhhvQ8B9AHb8bSGDaG5qZP36bXI8N+b9a0G+gCX2kFFmFPuAx74HOYnKz3B5xUPH5yTT0Q==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.surfaces.split-pane.pane@1.0.0':
     resolution: {integrity: sha512-OUzOlgCzt5pkAN9FcoXzlB+TUuH+5+Hh0EE/7X488rFTDHS6lW3pEgKPsqg1XUw30ivthOdVq7cwnpnB1seRhw==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.surfaces.split-pane.split-pane@1.0.0':
     resolution: {integrity: sha512-Zomx0m2Gsf9Dl+A3YwyZy1qJO3q6LtI7BTeEWsBLrub9fO0IXMTMjelsK918oAZ3xJ+LOXnEgYYVh+A9CQm2Qg==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.surfaces.split-pane.splitter@1.0.0':
     resolution: {integrity: sha512-5/oGHEUOQQnQUi2911fLb/rdFLLDoMy1G4fQ4DNkqoHcahi1a26tCtKlV+7FAI1LsFdk0V+wRp6WY+kX+Qbsxw==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.text.heading@1.0.4':
     resolution: {integrity: sha1-tPpsdOpL9sYJhfliT8AZfDG0p0A=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.text.paragraph@1.0.3':
     resolution: {integrity: sha1-1+iy0XYAMZbJ++r57HBNzAK7hoE=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.text.text-sizes@1.0.0':
     resolution: {integrity: sha512-mCoVLxG3Hm4hgeHJeNnde/4YxpUTvNPNsKbGozErigUrBTf5cKFvLnDYXlEzGOGwNrs9hqIG/nmm3um9E9/5bg==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/base-ui.theme.sizes@1.0.0':
     resolution: {integrity: sha512-A2PoEhZ/8GYSeypqIMGK0Hu/bcpfDdquxQtkXZ34bIpXdYaYGn0tHIJTAuxJTInWM+qLMBAHQ32p3qkm86IuDQ==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/design.theme.icons-font@2.0.29':
     resolution: {integrity: sha512-FldFi4JQdFHdXv0ZlJ8eDCCJVac8qwqb5MQ00yQH6VPV8KEpAxPohKuXggx8T4YBN3b7dU4SbehoatXm7qohuA==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/design.themes.base-theme@0.1.41':
     resolution: {integrity: sha512-nHfxG24yuqG6PGFo9fuUbBNvelVUl34gA2A4h5EJbX4uFKsYEVlIE202PfKYMrFXpT/9TNeyskjRTRWX/Sqn5Q==}
     peerDependencies:
       '@testing-library/react': ^12.1.5
-      react: ^17.0.0 || ^18.0.0
+      react: 18.3.1
 
   '@teambit/design.themes.dark-theme@1.91.44':
     resolution: {integrity: sha512-IM3t7UYJYf77p2c9s9AbHS8fMFdTKs6MpQIC/qgHsydKfnQn9K9oNBuA2UBs9Wghd+8VhhJNa2DHrNsus040IQ==}
     peerDependencies:
       '@testing-library/react': ^12.1.5
-      react: ^17.0.0 || ^18.0.0
+      react: 18.3.1
 
   '@teambit/design.themes.light-theme@0.1.41':
     resolution: {integrity: sha512-bTbdvX3OZr1EjCnmLWXQ0zNZmzdDoybwa4g5jkRR91+E1vdQ/VOCVu2awM18GZdGoKXC/zUwJe1kdWQc5ogVLw==}
     peerDependencies:
       '@testing-library/react': ^12.1.5
-      react: ^17.0.0 || ^18.0.0
+      react: 18.3.1
 
   '@teambit/design.themes.theme-toggler@0.1.45':
     resolution: {integrity: sha512-wMO3uzGJF7qGLr1uwiRpbtlcWj58VI8Lc95Zt/H6ZrP/aAySyMSWzHKjDrcYkgMUGT4z7iX3kt2HtEQs1sclDw==}
     peerDependencies:
-      react: ^17.0.0 || ^18.0.0
+      react: 18.3.1
 
   '@teambit/documenter.code.react-playground@4.1.9':
     resolution: {integrity: sha512-2vdqb62ViMt8OwZTnp+ePAFZtJqZkUtuyyaAqOijoyHyDyzgz8VRJ5atok9PRRdmylJIvIGK0LT86LbxMouX/g==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.markdown.heading@0.1.8':
     resolution: {integrity: sha1-nzm8nvmN4ZhYeKvSemUQ8QCkkmM=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.markdown.hybrid-live-code-snippet@0.1.12':
     resolution: {integrity: sha512-SiigPvNrOwnNwyFnyt+Vrc6yRnMJvqOw8rfQhL4GDaJuxwKusvzci6yTR5uQMhZXumS1fA6rhUexYPEAU2Lnuw==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.markdown.mdx@0.1.13':
     resolution: {integrity: sha512-u4GoY6rJK7GWsCBXJZuREazxMLuVvE0pQsHoSTnF9jyv2aiSNZ2KfzLT9KuF74PqW5CiIulyMgMkPg7JzZQZig==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.routing.external-link@4.1.2':
     resolution: {integrity: sha1-x8BwO3dJWu6xpvFCmhyGxIBGUsk=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.anchor@4.0.8':
     resolution: {integrity: sha1-uCm/XjJzF/uAWNo0M0ZD+EqSK4w=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.block-quote@4.0.7':
     resolution: {integrity: sha1-7+GPtKk6G3gN7oPmjt/F4b6F84I=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.bold@4.0.7':
     resolution: {integrity: sha1-9gJM/LIlweId0FfiXSfJe0b8P6Q=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.code-snippet@4.2.2':
     resolution: {integrity: sha1-dgCI6suKWJxi4A2jJFLa0UUESpQ=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.copied-message@4.1.6':
     resolution: {integrity: sha1-M5pctQny1uKI9T6rUQIR4Nv4iSE=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.heading@4.1.6':
     resolution: {integrity: sha1-nCoruiI/7n5xcXd4GEMdtuU5nIU=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.image@4.0.2':
     resolution: {integrity: sha1-lOGzakfJTF07HAYwkCYPeS3MKwI=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.inline-code@0.1.5':
     resolution: {integrity: sha1-ds6zetV22NrzIjAju0UoDBjePEY=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.italic@4.0.7':
     resolution: {integrity: sha1-udDO1kKFVhbtzPHibq1fT3cAjtg=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.linked-heading@4.1.8':
     resolution: {integrity: sha1-LGpmPIXZSWsXbYgkS/WR1VxJcCg=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.ol@4.1.5':
     resolution: {integrity: sha1-lapFqkqFsOmHSTE3otAHINSFdu8=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.paragraph@4.1.5':
     resolution: {integrity: sha1-w9jrNz9R2bIsMgLvjNgv9Ycmr3Y=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.separator@4.1.5':
     resolution: {integrity: sha1-xyOoVnbJEVVdAGegDDbr5EXrZH8=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.sup@4.0.7':
     resolution: {integrity: sha1-BsLXxuTjySkYTbpe2bxzPcbamVU=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.table.base-table@4.1.5':
     resolution: {integrity: sha1-bdqA6VoAdA2lDnRjrxeUUjk09UQ=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.table.td@4.1.5':
     resolution: {integrity: sha1-G1IEysSy68nlR2OF+QHUU39HrEw=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.table.tr@4.1.5':
     resolution: {integrity: sha1-jNAXpVn9c16u1xtdH/m1beo5TnQ=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/documenter.ui.ul@4.1.5':
     resolution: {integrity: sha1-tRTv2mMIu1ulZTNVLUDzQsDBuyM=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/evangelist.elements.icon@1.0.5':
     resolution: {integrity: sha1-abaBfCKbp8JEu8J7j9OB5kvyo5s=}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/mdx.ui.docs.link@0.0.505':
     resolution: {integrity: sha512-r6R5rjw+d7HZAODxx6zyEOWTVZ1BUjcro6EZBI+a+gVle3KR3kQJa0lnjh7UVPlLNVf05rsc/V2MgBz+SF+luw==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       '@testing-library/react': ^12.0.0
-      react: ^16.8.0 || ^17.0.0
+      react: 18.3.1
 
   '@teambit/mdx.ui.docs.snippet@0.0.509':
     resolution: {integrity: sha512-ZS3V4tlZ8AwCyukZhaXrexakgVPJvLO+ZOBRv3ufHeJtq+RQq+yGe/OmOV6T033c85EbsH+mGOiUFtF84pgjwA==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/mdx.ui.mdx-layout@1.0.9':
     resolution: {integrity: sha512-K+sc2mzapvsJLPjuhTgnnefVFQoLh+9LKtTYr3WlzHGoY/Hx5L/UMd36FEWFscKHONwM7Rc1GrAxv2n9cetIoA==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
+      react: 18.3.1
 
   '@teambit/mdx.ui.mdx-scope-context@1.0.5':
     resolution: {integrity: sha512-5PdFKZPTLspoauN6pd8+uPjORdFWAwK1U/7NPAW//90q/jJFbtvD4NKnAk920qJurwR+B3FDTiLEbPfDtPJY+g==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@teambit/mdx.ui.mdx-scope-context@1.0.7':
     resolution: {integrity: sha512-I1Wzrln6aepdLNn0+zu+itDs9wHS+n+zbB1uNI+fSEOGIPPGuQIlUwu0NGPQX0s/TzpykMq/r+aIkVQ79I5cNw==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@types/react': ^18.2.12
-      react: ^17.0.0 || ^18.0.0
+      '@types/react': ^18.3.11
+      react: 18.3.1
 
   '@teambit/node.deps-detectors.detective-es6@0.0.6':
     resolution: {integrity: sha512-f037vg5sK1mhiMqGlnYqo9c+hH+93D6DB+6OL5vw9gO8IqXwQywFxtXVU5bTMLmxg3U/3Dbr60B8U2UJ8IbgGg==}
@@ -747,8 +751,8 @@ packages:
     resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: <18.0.0
-      react-dom: <18.0.0
+      react: 18.3.1
+      react-dom: 18.3.1
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -798,14 +802,8 @@ packages:
   '@types/react-dom@17.0.25':
     resolution: {integrity: sha512-urx7A7UxkZQmThYA4So0NelOVjx3V4rNFVJwp0WZlbIK5eM4rNJDiN3R/E9ix0MBh6kAEojk/9YL+Te6D9zHNA==}
 
-  '@types/react@17.0.83':
-    resolution: {integrity: sha512-l0m4ArKJvmFtR4e8UmKrj1pB4tUgOhJITf+mADyF/p69Ts1YAR/E+G9XEM0mHXKVRa1dQNHseyyDNzeuAXfXQw==}
-
-  '@types/react@18.3.10':
-    resolution: {integrity: sha512-02sAAlBnP39JgXwkAq3PeU9DVaaGpZyF3MGcC0MKgQVkZor5IiiDAipVaxQHtDJAmO4GIy/rVBy/LzVj76Cyqg==}
-
-  '@types/scheduler@0.16.8':
-    resolution: {integrity: sha512-WZLiwShhwLRmeV6zH+GkbOFT6Z6VklCItrDioxUnv+u4Ll+8vKeFySoFyK/0ctcRpOmwAicELfmys1sDc/Rw+A==}
+  '@types/react@18.3.11':
+    resolution: {integrity: sha512-r6QZ069rFTjrEYgFdOck1gK7FLVsgJE7tTz0pQBczlBNUhBNk0MQH4UbnFSwjpQLMkLzgqvBBa+qGpLje16eTQ==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -1545,7 +1543,7 @@ packages:
   prism-react-renderer@1.3.5:
     resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
     peerDependencies:
-      react: '>=0.14.9'
+      react: 18.3.1
 
   prismjs@1.27.0:
     resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
@@ -1567,7 +1565,7 @@ packages:
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
-      react: ^18.3.1
+      react: 18.3.1
 
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -1576,8 +1574,8 @@ packages:
     resolution: {integrity: sha512-tHkft6spWgNOlW21XUQKqoFDP9ZVhrEUBD80sYwL1ykOovj9DN2z0GXW3d4G7gAphcUXCy+BLfe1S/IpdE5AAQ==}
     engines: {node: '>= 0.12.0', npm: '>= 2.0.0'}
     peerDependencies:
-      react: '*'
-      react-dom: '*'
+      react: 18.3.1
+      react-dom: 18.3.1
 
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
@@ -1586,13 +1584,13 @@ packages:
   react-syntax-highlighter@13.5.3:
     resolution: {integrity: sha512-crPaF+QGPeHNIblxxCdf2Lg936NAHKhNhuMzRL3F9ct6aYXL3NcZtCL0Rms9+qVo6Y1EQLdXGypBNSbPL/r+qg==}
     peerDependencies:
-      react: '>= 0.14.0'
+      react: 18.3.1
 
   react-use-dimensions@1.2.1:
     resolution: {integrity: sha512-XL+Rup9Hosxx3Ap9xpyQMbVwuUa4BSqiOjfBb2zDuGs4uv2FesFV+m8Z/huRx2BNptMd9ARPqFuSNA62zhCozg==}
     peerDependencies:
-      '@types/react': ^16.8.20
-      react: ^16.8.x
+      '@types/react': ^18.3.11
+      react: 18.3.1
       typescript: ^3.5.2
 
   react@18.3.1:
@@ -1919,12 +1917,12 @@ packages:
     resolution: {integrity: sha512-6X8H/mikbrt0XE8e+JXRtZ8yYVvKkdYRfmIhWZYsP8rcNs9hk3APV8Ua2mFkKRLcJKVdnX2/Vwrmg2GWKUQEaQ==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
-      react: '>=16.8.0'
+      react: 18.3.1
 
   use-editable@2.3.3:
     resolution: {integrity: sha512-7wVD2JbfAFJ3DK0vITvXBdpd9JAz5BcKAAolsnLBuBn6UDDwBGuCIAGvR3yA2BNKm578vAMVHFCWaOcA+BhhiA==}
     peerDependencies:
-      react: '>= 16.8.0'
+      react: 18.3.1
 
   varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
@@ -2265,14 +2263,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@1.6.22(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-
-  '@mdx-js/react@3.0.1(@types/react@18.3.10)(react@18.3.1)':
+  '@mdx-js/react@3.0.1(@types/react@18.3.11)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
       react: 18.3.1
 
   '@mdx-js/rollup@3.0.1(rollup@4.22.5)':
@@ -2344,11 +2338,11 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.22.5':
     optional: true
 
-  '@teambit/base-react.navigation.link@2.0.31(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@teambit/base-react.navigation.link@2.0.31(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@teambit/base-ui.routing.compare-url': 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@testing-library/react': 12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
       classnames: 2.3.1
       core-js: 3.38.1
       react: 18.3.1
@@ -2497,7 +2491,7 @@ snapshots:
       - '@testing-library/react'
       - react-dom
 
-  '@teambit/documenter.code.react-playground@4.1.9(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
+  '@teambit/documenter.code.react-playground@4.1.9(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
     dependencies:
       '@teambit/base-ui.input.error': 1.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@teambit/base-ui.surfaces.split-pane.hover-splitter': 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2508,7 +2502,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-live: 3.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-use-dimensions: 1.2.1(@types/react@18.3.10)(react@18.3.1)(typescript@3.9.10)
+      react-use-dimensions: 1.2.1(@types/react@18.3.11)(react@18.3.1)(typescript@3.9.10)
       use-debounce: 9.0.4(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
@@ -2522,9 +2516,9 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@teambit/documenter.markdown.hybrid-live-code-snippet@0.1.12(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
+  '@teambit/documenter.markdown.hybrid-live-code-snippet@0.1.12(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
     dependencies:
-      '@teambit/documenter.code.react-playground': 4.1.9(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
+      '@teambit/documenter.code.react-playground': 4.1.9(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
       '@teambit/documenter.ui.code-snippet': 4.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       core-js: 3.38.1
       react: 18.3.1
@@ -2533,11 +2527,11 @@ snapshots:
       - '@types/react'
       - typescript
 
-  '@teambit/documenter.markdown.mdx@0.1.13(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
+  '@teambit/documenter.markdown.mdx@0.1.13(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
     dependencies:
-      '@mdx-js/react': 1.6.22(react@18.3.1)
+      '@mdx-js/react': 3.0.1(@types/react@18.3.11)(react@18.3.1)
       '@teambit/documenter.markdown.heading': 0.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@teambit/documenter.markdown.hybrid-live-code-snippet': 0.1.12(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
+      '@teambit/documenter.markdown.hybrid-live-code-snippet': 0.1.12(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
       '@teambit/documenter.routing.external-link': 4.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@teambit/documenter.ui.block-quote': 4.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@teambit/documenter.ui.bold': 4.0.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2709,19 +2703,19 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@teambit/mdx.ui.docs.link@0.0.505(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@teambit/mdx.ui.docs.link@0.0.505(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@teambit/base-react.navigation.link': 2.0.31(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@teambit/base-react.navigation.link': 2.0.31(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@testing-library/react': 12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
     transitivePeerDependencies:
       - '@types/react'
       - react-dom
 
-  '@teambit/mdx.ui.docs.snippet@0.0.509(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
+  '@teambit/mdx.ui.docs.snippet@0.0.509(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
     dependencies:
-      '@mdx-js/react': 1.6.22(react@18.3.1)
-      '@teambit/documenter.markdown.hybrid-live-code-snippet': 0.1.12(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
+      '@mdx-js/react': 3.0.1(@types/react@18.3.11)(react@18.3.1)
+      '@teambit/documenter.markdown.hybrid-live-code-snippet': 0.1.12(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
       '@teambit/mdx.ui.mdx-scope-context': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       core-js: 3.38.1
       react: 18.3.1
@@ -2730,11 +2724,11 @@ snapshots:
       - '@types/react'
       - typescript
 
-  '@teambit/mdx.ui.mdx-layout@1.0.9(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
+  '@teambit/mdx.ui.mdx-layout@1.0.9(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)':
     dependencies:
-      '@teambit/documenter.markdown.mdx': 0.1.13(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
-      '@teambit/mdx.ui.docs.link': 0.0.505(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@teambit/mdx.ui.docs.snippet': 0.0.509(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
+      '@teambit/documenter.markdown.mdx': 0.1.13(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
+      '@teambit/mdx.ui.docs.link': 0.0.505(@testing-library/react@12.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@teambit/mdx.ui.docs.snippet': 0.0.509(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@3.9.10)
       react: 18.3.1
     transitivePeerDependencies:
       - '@testing-library/react'
@@ -2748,9 +2742,9 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@teambit/mdx.ui.mdx-scope-context@1.0.7(@types/react@18.3.10)(react@18.3.1)':
+  '@teambit/mdx.ui.mdx-scope-context@1.0.7(@types/react@18.3.11)(react@18.3.1)':
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
       react: 18.3.1
 
   '@teambit/node.deps-detectors.detective-es6@0.0.6':
@@ -2836,20 +2830,12 @@ snapshots:
 
   '@types/react-dom@17.0.25':
     dependencies:
-      '@types/react': 17.0.83
+      '@types/react': 18.3.11
 
-  '@types/react@17.0.83':
-    dependencies:
-      '@types/prop-types': 15.7.13
-      '@types/scheduler': 0.16.8
-      csstype: 3.1.3
-
-  '@types/react@18.3.10':
+  '@types/react@18.3.11':
     dependencies:
       '@types/prop-types': 15.7.13
       csstype: 3.1.3
-
-  '@types/scheduler@0.16.8': {}
 
   '@types/unist@2.0.11': {}
 
@@ -3895,9 +3881,9 @@ snapshots:
       react: 18.3.1
       refractor: 3.6.0
 
-  react-use-dimensions@1.2.1(@types/react@18.3.10)(react@18.3.1)(typescript@3.9.10):
+  react-use-dimensions@1.2.1(@types/react@18.3.11)(react@18.3.1)(typescript@3.9.10):
     dependencies:
-      '@types/react': 18.3.10
+      '@types/react': 18.3.11
       react: 18.3.1
       typescript: 3.9.10
 
