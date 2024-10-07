@@ -203,7 +203,32 @@ function wrapWithScopeContext() {
         {
           type: 'mdxJsxAttribute',
           name: 'components',
-          value: `{${ids.join(', ')}}`,
+          value: {
+            type: 'mdxJsxAttributeValueExpression',
+            value: `{${ids.join(', ')}}`,
+            data: {
+              estree: {
+                type: 'Program',
+                body: [
+                  {
+                    type: 'ExpressionStatement',
+                    expression: {
+                      type: 'ObjectExpression',
+                      properties: ids.map((id) => ({
+                        type: 'Property',
+                        "method": false,
+                        "shorthand": true,
+                        "computed": false,
+                        key: { type: 'Identifier', name: id },
+                        value: { type: 'Identifier', name: id },
+                        kind: 'init',
+                      })),
+                    },
+                  },
+                ],
+              },
+            }
+          },
         },
       ],
       children: [],

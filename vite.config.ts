@@ -8,7 +8,7 @@ import { mdxOptions } from "./config/mdx-options";
 
 const require = createRequire(import.meta.url);
 const mdxJsReactPath = require.resolve("@mdx-js/react");
-console.log({ mdxJsReactPath });
+// console.log({ mdxJsReactPath });
 
 export default defineConfig({
   css: {
