@@ -5,6 +5,7 @@ console.log({ Harmony, Aspect, RuntimeDefinition, Extension });
 const runtimeDefFoo = RuntimeDefinition.create({
   name: 'foo',
 });
+
 const aspectManifestX = {
   id: 'aspect/aspect-x',
   packageName: 'aspect-x',
@@ -18,8 +19,24 @@ const aspectManifestX = {
     'x.baz.js',
   ],
 };
+
 const aspectX = Aspect.create(aspectManifestX);
 
-const target = await Harmony.load([aspectX], 'foo');
-console.log({ target });
-console.log(target.runtimes);
+const runtimeManifestFoo = {
+  runtime: 'foo',
+  provider: async () => {
+    return {
+      foo: 'foo',
+    };
+  }
+}
+
+aspectX.addRuntime(runtimeManifestFoo);
+
+const harmony = await Harmony.load([aspectX], 'foo');
+console.log({ harmony });
+console.log(harmony.runtimes);
+
+await harmony.run();
+
+console.log(harmony.get('aspect/aspect-x'));
