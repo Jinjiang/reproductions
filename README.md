@@ -32,9 +32,13 @@ Manifest {
 
   runtime // only in runtime
 
+  // improts
   dependencies<Aspect>[] // Manifest[] in Extension
+  // context
   defaultConfig
+  // children
   slots[]
+  // exports
   provider
 }
 ```

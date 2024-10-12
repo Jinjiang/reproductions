@@ -4,11 +4,15 @@ const runtimeDefFoo = Runtime.create({
   name: 'foo',
 });
 
+const slotX = Slot.withType();
+const slotY = Slot.withType();
+const slotZ = Slot.withType();
+
 const aspectX = Aspect.create({
   id: 'aspect/aspect-x',
   packageName: 'aspect-x',
   dependencies: [],
-  slots: [],
+  slots: [slotX, slotY],
   defaultConfig: {},
   declareRuntime: runtimeDefFoo,
   files: [
@@ -20,9 +24,12 @@ const aspectX = Aspect.create({
 
 aspectX.addRuntime({
   runtime: runtimeDefFoo,
-  slots: [Slot.withType()],
-  provider: async (deps, config, [slot]) => {
-    return slot;
+  // overwrite the aspectX.slots
+  slots: [slotZ],
+  provider: async (deps, config, slots) => {
+    const [slotZ] = slots;
+    slotZ.register([{ name: 'a', value: 1 }, { name: 'b', value: 2 }]);
+    return slots[0];
   }
 })
 
@@ -30,14 +37,11 @@ const harmony = await Harmony.load([aspectX], 'foo');
 
 await harmony.run();
 
-const slotsX = harmony.get(aspectX.id);
+const target = harmony.get(aspectX.id);
 
-console.log({ slotsX });
+console.log({ target });
 
-slotsX.register([{ name: 'a', value: 1 }, { name: 'b', value: 2 }]);
-
-console.log(slotsX.get(aspectX.id));
-console.log(slotsX.getByName('a'));
-console.log(slotsX.getByName('b'));
-console.log(slotsX.length);
-
+console.log(target.get(aspectX.id));
+console.log(target.getByName('a'));
+console.log(target.getByName('b'));
+console.log(target.length);
