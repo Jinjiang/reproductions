@@ -1,7 +1,7 @@
 // TODO
-// - slots
 // - config
 // - files
 
 // import './basic.mjs';
-import './deps.mjs';
+// import './deps.mjs';
+import './slots.mjs';

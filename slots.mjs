@@ -1,6 +1,6 @@
-import { Harmony, Aspect, RuntimeDefinition, Slot } from '@bitdev/harmony.harmony';
+import { Harmony, Aspect, RuntimeDefinition as Runtime, Slot } from '@bitdev/harmony.harmony';
 
-const runtimeDefFoo = RuntimeDefinition.create({
+const runtimeDefFoo = Runtime.create({
   name: 'foo',
 });
 
