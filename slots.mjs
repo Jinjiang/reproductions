@@ -30,5 +30,14 @@ const harmony = await Harmony.load([aspectX], 'foo');
 
 await harmony.run();
 
-console.log(harmony.get(aspectX.id));
+const slotsX = harmony.get(aspectX.id);
+
+console.log({ slotsX });
+
+slotsX.register([{ name: 'a', value: 1 }, { name: 'b', value: 2 }]);
+
+console.log(slotsX.get(aspectX.id));
+console.log(slotsX.getByName('a'));
+console.log(slotsX.getByName('b'));
+console.log(slotsX.length);
 
