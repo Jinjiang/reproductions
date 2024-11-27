@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+output/*.js
+output/*.cjs
+output/*.mjs

@@ -4,10 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev2": "node debug/build.mjs && http-server ./output -p 5173",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@emotion/styled": "^11.13.5",
+    "fs-extra": "^11.2.0",
+    "http-server": "^14.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vite": "^6.0.1"
