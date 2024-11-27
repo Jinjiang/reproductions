@@ -1,7 +1,15 @@
 {
   "name": "reproduce",
   "private": true,
+  "type": "module",
   "scripts": {
+    "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@emotion/styled": "^11.13.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.1"
   }
 }
