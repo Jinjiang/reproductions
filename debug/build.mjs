@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
+import react from 'react';
 import { fileURLToPath } from 'url';
 import { build } from 'vite';
 
@@ -43,10 +44,12 @@ const mainConfig = {
     },
     rollupOptions: {
       external: [
-        '@emotion/styled'
+        'react',
+        '@emotion/styled',
       ],
       output: {
         globals: {
+          'react': 'React',
           '@emotion/styled': 'EmotionStyled',
         },
       }
