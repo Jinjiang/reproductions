@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
-import react from 'react';
 import { fileURLToPath } from 'url';
 import { build } from 'vite';
 
