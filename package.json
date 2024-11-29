@@ -1,7 +1,23 @@
 {
   "name": "reproduce",
+  "type": "module",
   "private": true,
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@bitdev/react.examples.button": "^1.1.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@teambit/react.babel.bit-react-transformer": "^1.0.24",
+    "@types/find-root": "^1.1.4",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "find-root": "^1.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.1"
   }
 }
