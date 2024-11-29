@@ -6,20 +6,22 @@ import findRoot from 'find-root';
 const esmRequire = createRequire(import.meta.url);
 
 const highlighterPath = esmRequire.resolve('@teambit/react.babel.bit-react-transformer');
-console.log({ highlighterPath });
 
 export default defineConfig({
   build: {
     minify: false,
   },
+  optimizeDeps: {
+    exclude: ['@bitdev/react.examples.button'],
+  },
   plugins: [
     babel({
       filter: (id: string | unknown) => {
         if (typeof id !== 'string') {
-          console.log('unknown', id);
+          console.log('\n[unknown]', id);
           return false;
         }
-        console.log('filter', id);
+        // console.log('filter', id);
         if (
           id.match(/^\//) &&
           id.match(/\.js$/) &&
@@ -27,12 +29,12 @@ export default defineConfig({
         ) {
           try {
             const root = findRoot(id);
-            console.log({ root });
-            console.log(`${root}/package.json`);
+            // console.log({ root });
+            // console.log(`${root}/package.json`);
             const packageJson = esmRequire(`${root}/package.json`);
             if (packageJson.componentId) {
-              console.log('filtered', packageJson.componentId);
-              console.log(id);
+              console.log('\n[filtered]', id);
+              // console.log(id);
               return true;
             }
           } catch (e) {
