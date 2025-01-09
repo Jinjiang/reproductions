@@ -3,6 +3,8 @@ import jsLint from "@eslint/js"
 import tsLint from "typescript-eslint"
 // import vueLint from "eslint-plugin-vue"
 
+import { tsconfigPath } from "./vars.mjs"
+
 export default [
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
@@ -10,6 +12,7 @@ export default [
       // common parser options, enable TypeScript and JSX
       parser: "@typescript-eslint/parser",
       parserOptions: {
+        project: tsconfigPath,
         sourceType: "module"
       },
     },
