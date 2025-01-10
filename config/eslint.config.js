@@ -15,7 +15,6 @@ const generalLintConfig = [
   // plugins
   {
     plugins: {
-      jest: eslintJest,
       react: eslintReact,
       "react-hooks": eslintReactHooks,
     },
@@ -82,11 +81,13 @@ const tsLintConfig = tsLint.config(
       // see more details here -
       // https://stackoverflow.com/questions/76457373/cannot-read-properties-of-undefined-reading-gettokens-occurred-while-linting
       '@typescript-eslint/no-empty-function': 'off',
+      // testing
+      // 'jest/expect-expect': 'off',
     },
   },
 )
 
-console.log('tsLintConfig', tsLintConfig)
+// console.log('tsLintConfig', tsLintConfig)
 
 const mdxLintConfig =[
   // mdx rules
@@ -108,10 +109,10 @@ const mdxLintConfig =[
   },
 ]
 
-console.log('mdxLintConfig', mdxLintConfig)
+// console.log('mdxLintConfig', mdxLintConfig)
 
 export default [
   ...generalLintConfig,
   ...tsLintConfig,
-  ...mdxLintConfig,
+  // ...mdxLintConfig,
 ];

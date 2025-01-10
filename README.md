@@ -7,8 +7,8 @@ node debug/run.mjs > output.txt
 TODO:
 
 - [ ] Add more test cases
-  - [ ] jest
-  - [ ] jest/recommended
+  - [x] jest
+  - [x] jest/recommended
   - [ ] import
   - [ ] import/recommended
   - [ ] airbnb-typescript
