@@ -53,6 +53,7 @@ const tsLintConfig = tsLint.config(
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     extends: [
+      tsLint.configs.recommended,
       eslintImport.flatConfigs.recommended,
       eslintImport.flatConfigs.typescript,
       eslintReact.configs.flat.recommended,
@@ -60,7 +61,8 @@ const tsLintConfig = tsLint.config(
     ],
     rules: {
       ...eslintReactHooks.configs.recommended.rules,
-      '@typescript-eslint/camelcase': 'off',
+      // deprecated
+      // '@typescript-eslint/camelcase': 'off',
       "no-unused-expressions": "off",
       "@typescript-eslint/no-unused-expressions": "off",
       'import/no-extraneous-dependencies': 'off',
@@ -87,7 +89,9 @@ const tsLintConfig = tsLint.config(
       'jest/expect-expect': 'off',
       // "jest/max-expects": [ "error", { "max": 5 } ],
       'import/export': 'off',
-      'import/no-commonjs': 'warn',
+      // 'import/no-commonjs': 'warn',
+      '@typescript-eslint/no-unused-vars': 'off',
+      // "@typescript-eslint/no-useless-empty-export": "error",
     },
   },
 )
