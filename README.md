@@ -14,8 +14,8 @@ TODO:
     - [x] import
       - [x] import/recommended: import/export
       - [x] import customized rules: import/no-commonjs
-    - [ ] react/recommended
-    - [ ] react-hooks/recommended
+    - [x] react/recommended
+    - [x] react-hooks/recommended
     - [x] jest
       - [x] jest/recommended: jest/expect-expect
       - [x] jest customized rules: jest/max-expects

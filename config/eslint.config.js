@@ -72,13 +72,6 @@ const tsLintConfig = tsLint.config(
       // https://stackoverflow.com/questions/76457373/cannot-read-properties-of-undefined-reading-gettokens-occurred-while-linting
       '@typescript-eslint/no-empty-function': 'off',
 
-      'import/no-extraneous-dependencies': 'off',
-      'import/prefer-default-export': 'off',
-      'import/extensions': 'off',
-
-      'react/jsx-props-no-spreading': 'off',
-      'react/no-array-index-key': 'off',
-      'react/require-default-props': 'off',
       'react/react-in-jsx-scope': 'off',
 
       // testing
@@ -88,6 +81,8 @@ const tsLintConfig = tsLint.config(
       // 'import/no-commonjs': 'warn',
       '@typescript-eslint/no-unused-vars': 'off',
       // "@typescript-eslint/no-useless-empty-export": "error",
+      'react/display-name': 'off',
+      'react-hooks/rules-of-hooks': 'off',
     },
   },
 )
