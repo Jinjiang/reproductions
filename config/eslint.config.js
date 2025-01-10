@@ -42,9 +42,6 @@ const generalLintConfig = [
       },
     },
   },
-
-  // avoid prettier conflicts
-  eslintPrettier
 ]
 
 const tsLintConfig = tsLint.config(
@@ -113,4 +110,5 @@ export default [
   ...generalLintConfig,
   ...tsLintConfig,
   ...mdxLintConfig,
+  eslintPrettier,
 ];
