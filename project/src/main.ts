@@ -18,3 +18,9 @@ Set<number>;
 window!;
 
 export {};
+
+class A {
+  foo() {
+    console.log("Hello World");
+  }
+}

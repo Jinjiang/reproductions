@@ -1,6 +1,7 @@
 // TODO: eslint-config-airbnb-typescript
 
 import globals from "globals"
+import eslint from '@eslint/js'
 import tsLint from "typescript-eslint"
 import eslintJest from "eslint-plugin-jest"
 import eslintImport from "eslint-plugin-import"
@@ -53,6 +54,7 @@ const tsLintConfig = tsLint.config(
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
     extends: [
+      eslint.configs.recommended,
       tsLint.configs.recommended,
       eslintImport.flatConfigs.recommended,
       eslintImport.flatConfigs.typescript,
@@ -61,30 +63,24 @@ const tsLintConfig = tsLint.config(
     ],
     rules: {
       ...eslintReactHooks.configs.recommended.rules,
-      // deprecated
-      // '@typescript-eslint/camelcase': 'off',
-      "no-unused-expressions": "off",
+
       "@typescript-eslint/no-unused-expressions": "off",
-      'import/no-extraneous-dependencies': 'off',
-      'import/prefer-default-export': 'off',
-      'react/jsx-props-no-spreading': 'off',
-      'react/no-array-index-key': 'off',
-      'trailing-comma': 'off',
-      'react/require-default-props': 'off',
-      'import/extensions': 'off',
-      '@typescript-eslint/comma-dangle': 'off',
-      'object-curly-newline': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'class-methods-use-this': 'off',
-      'arrow-body-style': 'off',
-      'prefer-arrow-callback': 'off',
-      'no-underscore-dangle': 'off',
       // Disable the rule because this causes issues in case there are multiple eslint versions
       // on the process, as it depends on some outer context.
       // this should be solve once upgrading to @typescript-eslint/eslint-plugin v6
       // see more details here -
       // https://stackoverflow.com/questions/76457373/cannot-read-properties-of-undefined-reading-gettokens-occurred-while-linting
       '@typescript-eslint/no-empty-function': 'off',
+
+      'import/no-extraneous-dependencies': 'off',
+      'import/prefer-default-export': 'off',
+      'import/extensions': 'off',
+
+      'react/jsx-props-no-spreading': 'off',
+      'react/no-array-index-key': 'off',
+      'react/require-default-props': 'off',
+      'react/react-in-jsx-scope': 'off',
+
       // testing
       'jest/expect-expect': 'off',
       // "jest/max-expects": [ "error", { "max": 5 } ],
