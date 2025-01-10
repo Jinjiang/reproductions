@@ -6,7 +6,7 @@ node debug/run.mjs > output.txt
 
 TODO:
 
-- [ ] Add more test cases
+- [x] Add more test cases
   - [x] ts
     - [x] js/ts
       - [x] js/ts/recommended: no-unused-vars, no-unused-expressions
@@ -24,5 +24,5 @@ TODO:
     - [x] react/recommended
     - [x] specified mdx rules
     - [x] mdx code blocks
-  - [ ] prettier
-- [ ] eslint-config-airbnb-typescript
+  - [x] prettier
+- [ ] mixed project structure with traditional and flat configs

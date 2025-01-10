@@ -1,5 +1,3 @@
-// TODO: eslint-config-airbnb-typescript
-
 import globals from "globals"
 import eslint from '@eslint/js'
 import tsLint from "typescript-eslint"
@@ -8,7 +6,7 @@ import eslintImport from "eslint-plugin-import"
 // import eslintImport from "eslint-plugin-import-x"
 import eslintReact from "eslint-plugin-react"
 import eslintReactHooks from "eslint-plugin-react-hooks"
-import eslintMdx from "eslint-plugin-mdx"
+import * as eslintMdx from "eslint-plugin-mdx"
 import eslintPrettier from "eslint-config-prettier"
 
 // import { tsconfigPath } from "./vars.mjs"
