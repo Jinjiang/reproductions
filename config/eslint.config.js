@@ -11,7 +11,7 @@ import eslintPrettier from "eslint-config-prettier"
 
 // import { tsconfigPath } from "./vars.mjs"
 
-export default tsLint.config(
+const generalLintConfig = [
   // plugins
   {
     plugins: {
@@ -43,6 +43,11 @@ export default tsLint.config(
     },
   },
 
+  // avoid prettier conflicts
+  eslintPrettier
+]
+
+const tsLintConfig = tsLint.config(
   // combined TS/JS rules
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
@@ -79,41 +84,16 @@ export default tsLint.config(
       '@typescript-eslint/no-empty-function': 'off',
     },
   },
+)
 
-  // // manual JS/TS parser
-  // {
-  //   files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
-  //   languageOptions: {
-  //     parser: "@typescript-eslint/parser",
-  //     parserOptions: {
-  //       project: tsconfigPath,
-  //       warnOnUnsupportedTypeScriptVersion: false,
-  //       ecmaVersion: 6,
-  //       sourceType: 'module',
-  //       ecmaFeatures: {
-  //         modules: true,
-  //         jsx: true,
-  //       },
-  //     },
-  //   },
-  // },
+console.log('tsLintConfig', tsLintConfig)
 
-  // // manual import rules
-  // eslintImport.flatConfigs.recommended,
-
-  // // manual Jest rules
-  // {
-  //   files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
-  //   ...eslintJest.configs['flat/recommended'],
-  // },
-
+const mdxLintConfig =[
   // mdx rules
   {
     ...eslintMdx.flat,
-    extends: [
-      eslintReact.configs.flat.recommended,
-    ],
     rules: {
+      ...eslintReact.configs.flat.recommended.rules,
       ...eslintMdx.configs.flat.rules,
       'react/jsx-uses-vars': 'error',
       'import/extensions': 'off',
@@ -126,7 +106,12 @@ export default tsLint.config(
   {
     ...eslintMdx.flatCodeBlocks,
   },
+]
 
-  // avoid prettier conflicts
-  eslintPrettier
-)
+console.log('mdxLintConfig', mdxLintConfig)
+
+export default [
+  ...generalLintConfig,
+  ...tsLintConfig,
+  ...mdxLintConfig,
+];
