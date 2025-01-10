@@ -4,6 +4,7 @@ import globals from "globals"
 import tsLint from "typescript-eslint"
 import eslintJest from "eslint-plugin-jest"
 import eslintImport from "eslint-plugin-import"
+// import eslintImport from "eslint-plugin-import-x"
 import eslintReact from "eslint-plugin-react"
 import eslintReactHooks from "eslint-plugin-react-hooks"
 import eslintMdx from "eslint-plugin-mdx"
@@ -83,10 +84,10 @@ const tsLintConfig = tsLint.config(
       // https://stackoverflow.com/questions/76457373/cannot-read-properties-of-undefined-reading-gettokens-occurred-while-linting
       '@typescript-eslint/no-empty-function': 'off',
       // testing
-      // 'jest/expect-expect': 'off',
+      'jest/expect-expect': 'off',
       // "jest/max-expects": [ "error", { "max": 5 } ],
-      // 'import/export': 'off',
-      // 'import/no-commonjs': 'warn',
+      'import/export': 'off',
+      'import/no-commonjs': 'warn',
     },
   },
 )
