@@ -4,7 +4,7 @@ import {
   eslintConfigPath
 } from "../config/vars.mjs"
 
-(async function main() {
+;(async function main() {
   const eslint = new ESLint({
     cwd: projectDir,
     overrideConfigFile: eslintConfigPath,

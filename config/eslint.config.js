@@ -1,57 +1,132 @@
+// TODO: eslint-config-airbnb-typescript
+
 import globals from "globals"
-import jsLint from "@eslint/js"
 import tsLint from "typescript-eslint"
-// import vueLint from "eslint-plugin-vue"
+import eslintJest from "eslint-plugin-jest"
+import eslintImport from "eslint-plugin-import"
+import eslintReact from "eslint-plugin-react"
+import eslintReactHooks from "eslint-plugin-react-hooks"
+import eslintMdx from "eslint-plugin-mdx"
+import eslintPrettier from "eslint-config-prettier"
 
-import { tsconfigPath } from "./vars.mjs"
+// import { tsconfigPath } from "./vars.mjs"
 
-export default [
+export default tsLint.config(
+  // plugins
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
-    languageOptions: {
-      // common parser options, enable TypeScript and JSX
-      parser: "@typescript-eslint/parser",
-      parserOptions: {
-        project: tsconfigPath,
-        sourceType: "module"
-      },
+    plugins: {
+      jest: eslintJest,
+      react: eslintReact,
+      "react-hooks": eslintReactHooks,
     },
   },
 
-  // {
-  //   files: ["*.vue", "**/*.vue"],
-  //   languageOptions: {
-  //     parser: "vue-eslint-parser",
-  //     parserOptions: {
-  //       // <script lang="ts" /> to enable TypeScript in Vue SFC
-  //       parser: "@typescript-eslint/parser",
-  //       sourceType: "module"
-  //     }
-  //   }
-  // },
-
+  // global settings
   {
+    settings: {
+      'mdx/code-blocks': false,
+      jest: {
+        version: 27,
+      },
+      react: {
+        version: '17.0',
+      },
+    },
     languageOptions: {
       globals: {
+        ...globals.jest,
+        ...globals.mocha,
         ...globals.browser,
-        ...globals.node
+        ...globals.node,
+        ...globals.es6,
       },
     },
   },
 
-  // syntax rules
-  jsLint.configs.recommended,
-  ...tsLint.configs.recommended,
-  // ...vueLint.configs["flat/essential"],
+  // combined TS/JS rules
+  {
+    files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+    extends: [
+      eslintImport.flatConfigs.recommended,
+      eslintImport.flatConfigs.typescript,
+      eslintReact.configs.flat.recommended,
+      eslintJest.configs['flat/recommended'],
+    ],
+    rules: {
+      ...eslintReactHooks.configs.recommended.rules,
+      '@typescript-eslint/camelcase': 'off',
+      "no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
+      'import/no-extraneous-dependencies': 'off',
+      'import/prefer-default-export': 'off',
+      'react/jsx-props-no-spreading': 'off',
+      'react/no-array-index-key': 'off',
+      'trailing-comma': 'off',
+      'react/require-default-props': 'off',
+      'import/extensions': 'off',
+      '@typescript-eslint/comma-dangle': 'off',
+      'object-curly-newline': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'class-methods-use-this': 'off',
+      'arrow-body-style': 'off',
+      'prefer-arrow-callback': 'off',
+      'no-underscore-dangle': 'off',
+      // Disable the rule because this causes issues in case there are multiple eslint versions
+      // on the process, as it depends on some outer context.
+      // this should be solve once upgrading to @typescript-eslint/eslint-plugin v6
+      // see more details here -
+      // https://stackoverflow.com/questions/76457373/cannot-read-properties-of-undefined-reading-gettokens-occurred-while-linting
+      '@typescript-eslint/no-empty-function': 'off',
+    },
+  },
 
+  // // manual JS/TS parser
   // {
-  //   ignores: ["node_modules", "dist", "build", "**/node_modules"],
+  //   files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+  //   languageOptions: {
+  //     parser: "@typescript-eslint/parser",
+  //     parserOptions: {
+  //       project: tsconfigPath,
+  //       warnOnUnsupportedTypeScriptVersion: false,
+  //       ecmaVersion: 6,
+  //       sourceType: 'module',
+  //       ecmaFeatures: {
+  //         modules: true,
+  //         jsx: true,
+  //       },
+  //     },
+  //   },
   // },
 
+  // // manual import rules
+  // eslintImport.flatConfigs.recommended,
+
+  // // manual Jest rules
+  // {
+  //   files: ["**/*.{js,mjs,cjs,ts,mts,jsx,tsx}"],
+  //   ...eslintJest.configs['flat/recommended'],
+  // },
+
+  // mdx rules
   {
+    ...eslintMdx.flat,
+    extends: [
+      eslintReact.configs.flat.recommended,
+    ],
     rules: {
-      "no-unused-vars": "warn",
-      "no-undef": "warn"
-    }
-  }
-]
+      ...eslintMdx.configs.flat.rules,
+      'react/jsx-uses-vars': 'error',
+      'import/extensions': 'off',
+      'react/jsx-uses-react': 'error',
+      'import/no-unresolved': 'off'
+    },
+  },
+
+  // mdx code blocks rules
+  {
+    ...eslintMdx.flatCodeBlocks,
+  },
+
+  // avoid prettier conflicts
+  eslintPrettier
+)
