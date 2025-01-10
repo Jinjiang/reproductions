@@ -25,8 +25,6 @@ const generalLintConfig = [
   // global settings
   {
     settings: {
-      // TODO: can be removed
-      'mdx/code-blocks': false,
       jest: {
         version: 27,
       },
@@ -92,20 +90,20 @@ const tsLintConfig = tsLint.config(
 const mdxLintConfig =[
   // mdx rules
   {
-    ...eslintMdx.flat,
-    rules: {
-      ...eslintReact.configs.flat.recommended.rules,
-      ...eslintMdx.configs.flat.rules,
-      'react/jsx-uses-vars': 'error',
-      'import/extensions': 'off',
-      'react/jsx-uses-react': 'error',
-      'import/no-unresolved': 'off'
+    files: ['**/*.{md,mdx}'],
+    languageOptions: eslintMdx.flat.languageOptions,
+    plugins: {
+      import: eslintImport,
+      mdx: eslintMdx.flat.plugins.mdx,
     },
-  },
-
-  // mdx code blocks rules
-  {
-    ...eslintMdx.flatCodeBlocks,
+    rules: {
+      ...eslintMdx.configs.flat.rules,
+      ...eslintReact.configs.flat.recommended.rules,
+      ...eslintImport.flatConfigs.recommended.rules,
+      'no-unused-expressions': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'import/no-unresolved': 'off'
+    }
   },
 ]
 

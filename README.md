@@ -20,9 +20,9 @@ TODO:
       - [x] jest/recommended: jest/expect-expect
       - [x] jest customized rules: jest/max-expects
   - [x] mdx
-    - [ ] mdx/recommended
-    - [ ] react/recommended
-    - [ ] specified mdx rules
-    - [ ] mdx code blocks
+    - [x] mdx/recommended
+    - [x] react/recommended
+    - [x] specified mdx rules
+    - [x] mdx code blocks
   - [ ] prettier
 - [ ] eslint-config-airbnb-typescript
