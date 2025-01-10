@@ -12,5 +12,7 @@ import {
 
   const results = await eslint.lintFiles(["."]);
 
-  console.log(results[0]);
+  console.log(results.map(
+    ({ filePath, messages }) => [filePath, ...messages]
+  ));
 })();

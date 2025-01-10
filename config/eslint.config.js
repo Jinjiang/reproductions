@@ -23,6 +23,7 @@ const generalLintConfig = [
   // global settings
   {
     settings: {
+      // TODO: can be removed
       'mdx/code-blocks': false,
       jest: {
         version: 27,
@@ -83,6 +84,9 @@ const tsLintConfig = tsLint.config(
       '@typescript-eslint/no-empty-function': 'off',
       // testing
       // 'jest/expect-expect': 'off',
+      // "jest/max-expects": [ "error", { "max": 5 } ],
+      // 'import/export': 'off',
+      // 'import/no-commonjs': 'warn',
     },
   },
 )
@@ -114,5 +118,5 @@ const mdxLintConfig =[
 export default [
   ...generalLintConfig,
   ...tsLintConfig,
-  // ...mdxLintConfig,
+  ...mdxLintConfig,
 ];
