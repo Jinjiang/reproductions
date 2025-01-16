@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "outDir": "../project/dist",
-    "rootDir": "../project/src",
+    "outDir": "../dist",
+    "rootDir": "../src",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["../project/src/**/*.ts"],
-  "exclude": ["../project/dist"]
+  "include": ["../src/**/*.ts"],
+  "exclude": ["../dist"]
 }
