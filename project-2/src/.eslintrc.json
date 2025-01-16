@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "../config/bit-eslint-config.cjs"
+  ]
+}
