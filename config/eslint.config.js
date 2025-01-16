@@ -76,6 +76,11 @@ const tsLintConfig = tsLint.config(
       // "@typescript-eslint/no-useless-empty-export": "error",
       'react/display-name': 'off',
       'react-hooks/rules-of-hooks': 'off',
+
+      // opposite results
+      // - main.spec.ts (3): expect-expect, expect-expect, max-expects
+      // - main.ts (6): no-commonjs, export, no-unused-vars, export, no-useless-empty-export, no-unused-vars
+      // - main.tsx (2): rules-of-hooks, display-name
     },
   },
 )
