@@ -3,6 +3,7 @@
 /* eslint-disable */
 
 const configs = require('eslint-plugin-mdx/lib/configs');
+const { tsconfigPath } = require('./vars.cjs');
 
 module.exports = {
   extends: ['plugin:jest/recommended', 'plugin:import/recommended', 'plugin:react-hooks/recommended'],
@@ -40,7 +41,7 @@ module.exports = {
         // createDefaultProgram: true,
         // Should be provided by the extender eslint
         // we can't calculate the tsconfig path here
-        // project: `${tsconfigPath}`,
+        project: `${tsconfigPath}`,
       },
 
       rules: {
