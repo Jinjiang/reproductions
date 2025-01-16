@@ -1,5 +1,6 @@
 import globals from "globals"
 import eslint from '@eslint/js'
+// eslint-disable-next-line import/no-unresolved
 import tsLint from "typescript-eslint"
 import eslintJest from "eslint-plugin-jest"
 import eslintImport from "eslint-plugin-import"
@@ -68,14 +69,14 @@ const tsLintConfig = tsLint.config(
       'react/react-in-jsx-scope': 'off',
 
       // testing
-      'jest/expect-expect': 'off',
-      // "jest/max-expects": [ "error", { "max": 5 } ],
-      'import/export': 'off',
-      // 'import/no-commonjs': 'warn',
-      '@typescript-eslint/no-unused-vars': 'off',
-      // "@typescript-eslint/no-useless-empty-export": "error",
-      'react/display-name': 'off',
-      'react-hooks/rules-of-hooks': 'off',
+      // 'jest/expect-expect': 'off',
+      "jest/max-expects": [ "error", { "max": 5 } ],
+      // 'import/export': 'off',
+      'import/no-commonjs': 'warn',
+      // '@typescript-eslint/no-unused-vars': 'off',
+      "@typescript-eslint/no-useless-empty-export": "error",
+      // 'react/display-name': 'off',
+      // 'react-hooks/rules-of-hooks': 'off',
 
       // opposite results
       // - main.spec.ts (3): expect-expect, expect-expect, max-expects

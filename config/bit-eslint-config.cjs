@@ -1,5 +1,7 @@
 // ONLY FOR DEBUGGING PURPOSES
 
+/* eslint-disable */
+
 const configs = require('eslint-plugin-mdx/lib/configs');
 
 module.exports = {
