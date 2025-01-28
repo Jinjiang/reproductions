@@ -2,7 +2,7 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "dev": "node ./debug/run.mjs"
+    "dev": "rm -rf node_modules/.vite && node ./debug/run.mjs"
   },
   "dependencies": {
     "compression": "^1.7.5",

@@ -7,14 +7,15 @@ import { createServer } from 'vite'
 const port = 3000;
 const root = process.cwd() + '/debug/project';
 
-const envVars = {
-  BROWSER_RUNTIME_URL: "http://localhost:3000",
-  BROWSER_RUNTIME_PORT: "3000",
-  NODE_RUNTIME_URL: "http://localhost:5001",
-  NODE_RUNTIME_PORT: "5001",
-  VITE_CJS_TRACE: "true",
-  VITE_CJS_IGNORE_WARNING: "1"
-};
+const envVars = {};
+
+// NOTE:
+// foo (including css imports) must be noExternal
+// baz (commonjs) must be external
+const external = ['baz'];
+const noExternal = ['foo', 'bar'];
+// const external = undefined;
+// const noExternal = true;
 
 const config = {
   configFile: false,
@@ -32,36 +33,31 @@ const config = {
   server: { host: true, middlewareMode: true },
   appType: 'custom',
   ssr: {
+    external,
+    noExternal,
   }
 }
 
 const devServer = await createServer(config);
 const indexHtmlPath = resolve(root, 'index.html');
-const serverEntryFile = resolve(root, 'wayne-com.browser.root.js');
+const serverEntryFile = resolve(root, 'root.js');
 
 const app = express();
 
-/**
- * set middlewares.
- */
 app.use(compression());
 app.use(devServer.middlewares);
 
-app.use("*", async (req, res, next) => {
+app.use("*", async (req, res) => {
   const url = req.originalUrl;
-  console.log('\n[createSsrServer] template:', url);
 
   try {
     const template = readFileSync(resolve(indexHtmlPath), "utf-8");
-    console.log('- transformIndexHtml:', url);
     const tranformedTemplate = await devServer.transformIndexHtml(url, template);
-    console.log('- ssrLoadModule:', serverEntryFile);
     const serverModule = await devServer.ssrLoadModule(serverEntryFile);
-    console.log('- serverModule:', serverModule);
     const render = serverModule?.render || serverModule?.default;
     const loadScripts = serverModule?.loadScripts;
 
-    if (!render) throw new Error('implement a `render` method for the dev server to run, or turn `ssr: false` in your `bit-app` file')
+    if (!render) throw new Error('implement a `render` method for the dev server to run');
     const appHtml = await render({ path: url });
     const scripts = loadScripts ? await loadScripts() : undefined;
     const htmlWithBody = tranformedTemplate.replace(`<!--ssr-outlet-->`, appHtml);
@@ -72,12 +68,7 @@ app.use("*", async (req, res, next) => {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/html");
     res.end(html);
-  } catch (error) {
-    console.log('\n[createSsrServer] error:', error);
-    // if (vite) vite.ssrFixStacktrace(error);
-    // // eslint-disable-next-line no-console
-    // console.error(error);
-    next(error);
+  } catch {
   }
 });
 
