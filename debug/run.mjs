@@ -1,4 +1,5 @@
 import express from 'express';
+import httpProxy from 'http-proxy';
 
 import { createServer } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -6,27 +7,30 @@ import react from '@vitejs/plugin-react';
 const viteDevServer = await createServer({
   configFile: false,
   envFile: false,
+  base: '/custom-base/',
   plugins: [
     react()
   ]
 });
-await viteDevServer.listen(3000);
-console.log('server running on http://localhost:3000');
+await viteDevServer.listen(5173);
+console.log('server running on http://localhost:5173');
 
-// // proxy vite dev server from 3000 to 4000 by express, including HMR by websocket
+// proxy vite dev server from 5173 to 4173 by express, including HMR by websocket
 
-// const app = express();
+const app = express();
 
-// app.use((req, res) => {
-//   viteDevServer.middlewares(req, res);
-// });
+const server = app.listen(4173, () => {
+  console.log('Express server running on http://localhost:4173');
+});
 
-// const server = app.listen(4000, () => {
-//   console.log('Express server running on http://localhost:4000');
-// });
+server.on('upgrade', (req, socket, head) => {
+  console.log('upgrade', req.url, head);
+  proxy.ws(req, socket, head, { target: 'http://localhost:5173' });
+});
 
-// server.on('upgrade', (req, socket, head) => {
-//   viteDevServer.wsServer.handleUpgrade(req, socket, head, (ws) => {
-//     viteDevServer.wsServer.emit('connection', ws, req);
-//   });
-// });
+const proxy = httpProxy.createProxyServer();
+
+app.use('/custom-base/*', (req, res) => {
+  req.url = req.originalUrl;
+  proxy.web(req, res, { target: 'http://localhost:5173' });
+});
