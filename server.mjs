@@ -11,6 +11,23 @@ const devServer = await createServer({
     middlewareMode: true,
   },
   appType: "custom",
+  optimizeDeps: {
+    include: ["react", "react > rehackt"],
+    exclude: ["@bitdev/harmony.examples.people"],
+  },
+  ssr: {
+    external: [
+      // '@bitdev/harmony.harmony',
+      'react',
+      'react-dom',
+      // 'react-router-dom',
+      // 'rehackt',
+      // 'classnames',
+      // '@teambit/base-react.navigation.link',
+      // '@teambit/ui-foundation.ui.navigation.react-router-adapter',
+    ],
+    noExternal: true,
+  },
 });
 
 // await viteServer.listen();
