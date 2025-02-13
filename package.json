@@ -1,7 +1,21 @@
 {
   "name": "reproduce",
+  "type": "module",
   "private": true,
   "scripts": {
+    "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@bitdev/harmony.examples.people": "^3.0.0",
+    "@types/express": "^5.0.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "compression": "^1.8.0",
+    "express": "^4.21.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vite": "^6.1.0"
   }
 }
