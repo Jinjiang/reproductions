@@ -1,37 +1,45 @@
+import { createRequire } from "module";
 import { readFileSync } from "fs";
-// import { resolve } from "path";
 import express from "express";
 import compression from 'compression'
 import { createServer } from "vite";
+import findRoot from "find-root";
 import react from "@vitejs/plugin-react";
 
+const require = createRequire(import.meta.url);
+const reactRoot = findRoot(require.resolve('react'));
+
 const devServer = await createServer({
+  configFile: false,
+  envFile: false,
   plugins: [react()],
   server: {
     middlewareMode: true,
   },
   appType: "custom",
-  optimizeDeps: {
-    include: ["react", "react > rehackt"],
-    exclude: ["@bitdev/harmony.examples.people"],
-  },
-  ssr: {
-    external: [
-      // '@bitdev/harmony.harmony',
-      'react',
-      'react-dom',
-      // 'react-router-dom',
-      // 'rehackt',
-      // 'classnames',
-      // '@teambit/base-react.navigation.link',
-      // '@teambit/ui-foundation.ui.navigation.react-router-adapter',
+  resolve: {
+    alias: [
+      // {
+      //   find: "react",
+      //   replacement: reactRoot,
+      // }
     ],
-    noExternal: true,
   },
+  // // for other debugging purposes
+  // optimizeDeps: {
+  //   include: [
+  //     "react > rehackt",
+  //   ],
+  //   exclude: ["@bitdev/harmony.examples.people"],
+  // },
+  // ssr: {
+  //   external: [
+  //     'react',
+  //     'react-dom',
+  //   ],
+  //   noExternal: true,
+  // },
 });
-
-// await viteServer.listen();
-// viteServer.printUrls();
 
 const app = express();
 
@@ -61,11 +69,11 @@ app.use("*", async (req, res) => {
       appHtml = renderResult.html;
       scripts = renderResult.script;
     }
-    console.log('\n[request]', url);
-    console.log(appHtml);
-    console.log("-----------------");
-    console.log(scripts);
-    console.log("-----------------");
+    // console.log('\n[request]', url);
+    // console.log(appHtml);
+    // console.log("-----------------");
+    // console.log(scripts);
+    // console.log("-----------------");
 
     const htmlWithBody = tranformedTemplate.replace(`<!--ssr-outlet-->`, appHtml);
     const html = scripts
