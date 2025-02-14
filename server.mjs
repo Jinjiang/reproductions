@@ -8,6 +8,7 @@ import react from "@vitejs/plugin-react";
 
 const require = createRequire(import.meta.url);
 const reactRoot = findRoot(require.resolve('react'));
+const reactDomRoot = findRoot(require.resolve('react-dom'));
 
 const devServer = await createServer({
   configFile: false,
@@ -17,28 +18,40 @@ const devServer = await createServer({
     middlewareMode: true,
   },
   appType: "custom",
-  resolve: {
-    alias: [
-      // {
-      //   find: "react",
-      //   replacement: reactRoot,
-      // }
-    ],
+  environments: {
+    client: {
+      resolve: {
+        alias: [
+          {
+            find: "react",
+            replacement: reactRoot,
+          },
+          {
+            find: "react-dom",
+            replacement: reactDomRoot,
+          },
+        ],
+      },
+      optimizeDeps: {
+        include: [
+          "react > rehackt",
+          '@bitdev/harmony.aspects.platform-aspect > @bitdesign/sparks.layout.app-layout',
+        ],
+        exclude: [
+          '@bitdev/harmony.aspects.platform-aspect',
+        ]
+      },
+    },
+    ssr: {
+      resolve: {
+        // external: [
+        //   'react',
+        //   'react-dom',
+        // ],
+        // noExternal: true,
+      }
+    },
   },
-  // // for other debugging purposes
-  // optimizeDeps: {
-  //   include: [
-  //     "react > rehackt",
-  //   ],
-  //   exclude: ["@bitdev/harmony.examples.people"],
-  // },
-  // ssr: {
-  //   external: [
-  //     'react',
-  //     'react-dom',
-  //   ],
-  //   noExternal: true,
-  // },
 });
 
 const app = express();
