@@ -35,6 +35,8 @@ const devServer = await createServer({
       optimizeDeps: {
         include: [
           "react > rehackt",
+          "react-dom/server",
+          "@bitdev/harmony.aspects.platform-aspect > react-router-dom/server.js",
           '@bitdev/harmony.aspects.platform-aspect > @bitdesign/sparks.layout.app-layout',
         ],
         exclude: [
