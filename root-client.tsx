@@ -2,16 +2,12 @@ import React from 'react';
 import {
   hydrateRoot,
 } from 'react-dom/client';
-// for other debugging purposes
-import harmonyAspectsPlatformAspectRuntime from '@bitdev/harmony.aspects.platform-aspect/dist/platform-aspect.browser.runtime.js';
+import { App } from './App.tsx';
 
 const domNode = document.getElementById('root');
 
 if (domNode)
   hydrateRoot(
     domNode,
-    (<div>Hello World!</div>)
+    (<App />)
   );
-
-// for other debugging purposes
-console.log(harmonyAspectsPlatformAspectRuntime);

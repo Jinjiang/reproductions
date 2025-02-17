@@ -1,10 +1,12 @@
 import { createRequire } from "module";
 import { readFileSync } from "fs";
+import { join } from "path";
 import express from "express";
 import compression from 'compression'
 import { createServer } from "vite";
 import findRoot from "find-root";
 import react from "@vitejs/plugin-react";
+import chokidar from "chokidar";
 
 const require = createRequire(import.meta.url);
 const reactRoot = findRoot(require.resolve('react'));
@@ -41,6 +43,7 @@ const devServer = await createServer({
         ],
         exclude: [
           '@bitdev/harmony.aspects.platform-aspect',
+          "my-comp",
         ]
       },
     },
@@ -55,6 +58,14 @@ const devServer = await createServer({
     },
   },
 });
+
+const watcherTargetDir = join(process.cwd(), 'node_modules', 'my-comp');
+const watcher = chokidar.watch(watcherTargetDir);
+watcher.on('change', (path) => {
+  console.log('file changed', path);
+  devServer.watcher.emit('change', path);
+});
+
 
 const app = express();
 
