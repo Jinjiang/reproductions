@@ -9,6 +9,17 @@ import react from "@vitejs/plugin-react";
 const require = createRequire(import.meta.url);
 const reactRoot = findRoot(require.resolve('react'));
 
+console.log({ reactRoot });
+
+const envVars = {
+  BROWSER_RUNTIME_URL: "http://localhost:3000",
+  BROWSER_RUNTIME_PORT: "3000",
+  NODE_RUNTIME_URL: "http://localhost:5001",
+  NODE_RUNTIME_PORT: "5001",
+  VITE_CJS_TRACE: "true",
+  VITE_CJS_IGNORE_WARNING: "1"
+};
+
 const devServer = await createServer({
   configFile: false,
   envFile: false,
@@ -17,6 +28,9 @@ const devServer = await createServer({
     middlewareMode: true,
   },
   appType: "custom",
+  define: {
+    'process.env': JSON.stringify(envVars),
+  },
   resolve: {
     alias: [
       // {
@@ -39,6 +53,80 @@ const devServer = await createServer({
   //   ],
   //   noExternal: true,
   // },
+  environments: {
+    client: {
+      optimizeDeps: {
+        include: [
+          // // all sub deps in @bitdev/harmony.aspects.platform-aspect
+          // "react",
+          // '@apollo/client',
+          // '@apollo/client/react/ssr/index.js',
+          // "react-dom/client",
+          // "react-dom/server",
+          // 'react-router-dom',
+          // 'react-router-dom/server.js',
+          // '@bitdesign/sparks.layout.app-layout',
+        ],
+        exclude: [
+          // // packages that needs hmr
+          // '@bitdev/harmony.aspects.platform-aspect',
+          // '@bitdev/harmony.examples.people',
+        ],
+      },
+      resolve: {
+        // dedupe: [
+        //   // all singletons
+        //   'react',
+        //   'react-dom',
+        //   'graphql',
+        //   'react-router',
+        //   'react-router-dom',
+        //   '@apollo/client',
+        // ],
+      },
+    },
+    ssr: {
+      resolve: {
+        // dedupe: [
+        //   // all singletons
+        //   'react',
+        //   'react-dom',
+        //   'graphql',
+        //   'react-router',
+        //   'react-router-dom',
+        //   '@apollo/client',
+        // ],
+        // cjs code, should be listed explicitly
+        external: [
+          // 'react',
+          // 'react/jsx-runtime.js',
+          // 'react-dom',
+          // 'react-router-dom',
+          // 'rehackt',
+          // 'classnames',
+          // '@teambit/base-react.navigation.link',
+          // '@teambit/ui-foundation.ui.navigation.react-router-adapter',
+          
+          // '@bitdev/harmony.harmony',
+          // '@bitdev/harmony.examples.people',
+          // '@bitdev/harmony.aspects.platform-aspect',
+          // '@bitdev/harmony.runtimes.browser-runtime',
+
+          // '@bitdesign/sparks.layout.app-layout',
+          // '@teambit/base-react.navigation.link',
+        ],
+        // has non-js code like css, should set true by default
+        noExternal: [
+          '@bitdev/harmony.harmony',
+          '@bitdev/harmony.examples.people',
+          '@bitdev/harmony.aspects.platform-aspect',
+          '@bitdev/harmony.runtimes.browser-runtime',
+          '@bitdesign/sparks.layout.app-layout',
+          '@bitdesign/sparks.navigation.link',
+        ],
+      },
+    },
+  },
 });
 
 const app = express();
@@ -52,7 +140,7 @@ app.use("*", async (req, res) => {
   try {
     const template = readFileSync('./index.html', "utf-8");
     const tranformedTemplate = await devServer.transformIndexHtml(url, template);
-    const serverModule = await devServer.ssrLoadModule('./root-server.tsx');
+    const serverModule = await devServer.ssrLoadModule('./testing-root.js');
     const render = serverModule?.render || serverModule?.default;
     const loadScripts = serverModule?.loadScripts;
 

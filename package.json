@@ -17,6 +17,10 @@
     "vite": "^6.1.0"
   },
   "dependencies": {
+    "@bitdev/harmony.aspects.platform-aspect": "^1.0.3",
+    "@bitdev/harmony.examples.people": "^3.0.0",
+    "@bitdev/harmony.harmony": "^1.0.14",
+    "@bitdev/harmony.runtimes.browser-runtime": "^0.0.51",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }
