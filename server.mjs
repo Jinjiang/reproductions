@@ -1,16 +1,8 @@
-import { createRequire } from "module";
 import { readFileSync } from "fs";
-import { join } from "path";
 import express from "express";
 import compression from 'compression'
 import { createServer } from "vite";
-import findRoot from "find-root";
 import react from "@vitejs/plugin-react";
-import chokidar from "chokidar";
-
-const require = createRequire(import.meta.url);
-const reactRoot = findRoot(require.resolve('react'));
-const reactDomRoot = findRoot(require.resolve('react-dom'));
 
 const devServer = await createServer({
   configFile: false,
@@ -23,49 +15,27 @@ const devServer = await createServer({
   environments: {
     client: {
       resolve: {
-        alias: [
-          {
-            find: "react",
-            replacement: reactRoot,
-          },
-          {
-            find: "react-dom",
-            replacement: reactDomRoot,
-          },
+        dedupe: [
+          'foo-cjs',
         ],
-      },
-      optimizeDeps: {
-        include: [
-          "react > rehackt",
-          "react-dom/server",
-          "@bitdev/harmony.aspects.platform-aspect > react-router-dom/server.js",
-          '@bitdev/harmony.aspects.platform-aspect > @bitdesign/sparks.layout.app-layout',
-        ],
-        exclude: [
-          '@bitdev/harmony.aspects.platform-aspect',
-          "my-comp",
-        ]
       },
     },
     ssr: {
       resolve: {
-        // external: [
-        //   'react',
-        //   'react-dom',
-        // ],
-        // noExternal: true,
+        dedupe: [
+          'foo-cjs',
+        ],
+        external: [
+          'foo-cjs',
+          'bar-cjs',
+        ],
+        noExternal: [
+          'bar-esm',
+        ],
       }
     },
   },
 });
-
-const watcherTargetDir = join(process.cwd(), 'node_modules', 'my-comp');
-const watcher = chokidar.watch(watcherTargetDir);
-watcher.on('change', (path) => {
-  console.log('file changed', path);
-  devServer.watcher.emit('change', path);
-});
-
 
 const app = express();
 
@@ -95,11 +65,6 @@ app.use("*", async (req, res) => {
       appHtml = renderResult.html;
       scripts = renderResult.script;
     }
-    // console.log('\n[request]', url);
-    // console.log(appHtml);
-    // console.log("-----------------");
-    // console.log(scripts);
-    // console.log("-----------------");
 
     const htmlWithBody = tranformedTemplate.replace(`<!--ssr-outlet-->`, appHtml);
     const html = scripts
@@ -109,11 +74,8 @@ app.use("*", async (req, res) => {
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/html");
     res.end(html);
-  } catch {
-    // if (devServer) devServer.ssrFixStacktrace(error);
-    // // eslint-disable-next-line no-console
-    // console.error(error);
-    // next(error);
+  } catch (error) {
+    next(error);
   }
 });
 
