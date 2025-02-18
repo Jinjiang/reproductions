@@ -1,4 +1,4 @@
-How to ~~reproduce~~ run:
+How to reproduce:
 
 ```bash
 pnpm install
@@ -7,6 +7,22 @@ pnpm dev
 
 Open `http://localhost:3000` in browser.
 
-to fix hmr in node_modules:
+Expected in both browser console and terminal:
 
-- modify @vitejs/plugin-react by following this PR: https://github.com/vitejs/vite-plugin-react/pull/306
+```js
+{
+  foo: 'foo v1.0.0',
+  barCjs: 'bar-cjs v1.0.0, requires foo v1.0.0',
+  barEsm: 'bar-esm v1.0.0, requires foo v1.0.0'
+}
+```
+
+Actual in terminal:
+
+```js
+{
+  foo: 'foo v1.0.0',
+  barCjs: 'bar-cjs v1.0.0, requires foo v2.0.0',
+  barEsm: 'bar-esm v1.0.0, requires foo v1.0.0'
+}
+```
