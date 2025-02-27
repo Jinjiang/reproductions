@@ -1,0 +1,2 @@
+- [ ] validate tsconfig.json
+- [ ] think about how to specify tsconfig.json into eslint.config.js

@@ -1,13 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "outDir": "../dist",
-    "rootDir": "../src",
-    "strict": true,
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.Iterable"
+    ],
+    "target": "es2020",
+    "module": "NodeNext",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "../dist",
+    "types": [
+      "vitest/globals",
+      "@testing-library/jest-dom"
+    ],
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["../src/**/*.ts"],
-  "exclude": ["../dist"]
+  "include": [
+    "../src/**/*.ts",
+    "../src/**/*.tsx",
+    "../src/**/*.md",
+    "../src/**/*.mdx",
+  ],
+  "exclude": ["../dist"],
 }

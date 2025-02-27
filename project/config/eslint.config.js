@@ -10,7 +10,9 @@ import eslintReactHooks from "eslint-plugin-react-hooks"
 import * as eslintMdx from "eslint-plugin-mdx"
 import eslintPrettier from "eslint-config-prettier"
 
-// import { tsconfigPath } from "./vars.mjs"
+import { tsconfigPath } from "./vars.mjs"
+
+console.log({ tsconfigPath })
 
 const generalLintConfig = [
   // plugins
@@ -50,6 +52,13 @@ const tsLintConfig = tsLint.config(
     extends: [
       eslint.configs.recommended,
       tsLint.configs.recommended,
+      {
+        languageOptions: {
+          parserOptions: {
+            project: [tsconfigPath],
+          },
+        },
+      },
       eslintImport.flatConfigs.recommended,
       eslintImport.flatConfigs.typescript,
       eslintReact.configs.flat.recommended,
