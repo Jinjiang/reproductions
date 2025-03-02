@@ -32,13 +32,13 @@ const devServer = await createServer({
   //   ],
   //   exclude: ["@bitdev/harmony.examples.people"],
   // },
-  // ssr: {
-  //   external: [
-  //     'react',
-  //     'react-dom',
-  //   ],
-  //   noExternal: true,
-  // },
+  ssr: {
+    // external: [
+    //   'react',
+    //   'react-dom',
+    // ],
+    noExternal: true,
+  },
 });
 
 const app = express();
