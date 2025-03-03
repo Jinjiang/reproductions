@@ -40,6 +40,13 @@ const devServer = await createServer({
     //   'react-dom',
     // ],
     // noExternal: true,
+    // optimizeDeps: {
+    //   include: [
+    //     'case-1-foo-cjs',
+    //     'case-1-bar-cjs',
+    //     'case-1-baz-cjs',
+    //   ],
+    // },
   },
 });
 
