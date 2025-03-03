@@ -8,6 +8,9 @@ import * as bar from 'case-1-bar-cjs';
 import * as baz from 'case-1-baz-cjs';
 import * as qux from 'case-1-qux-esm';
 
+import complexCjs from 'complex-foo/index.cjs';
+import complexEsm from 'complex-foo/index2.mjs';
+
 console.log({
   fooDefault,
   barDefault,
@@ -17,6 +20,8 @@ console.log({
   bar,
   baz,
   qux,
+  complexCjs,
+  complexEsm,
 });
 
 export default function App() {

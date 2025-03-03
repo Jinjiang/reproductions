@@ -55,14 +55,26 @@ const devServer = await createServer({
     ],
   },
   ssr: {
+    resolve: {
+      dedupe: [
+        // 'case-1-foo-cjs',
+      ],
+    },
     // external: [
     //   'react',
     //   'react-dom',
     // ],
     // noExternal: true,
+    noExternal: [
+      // 'case-1-foo-cjs',
+      // 'complex-foo',
+    ],
     optimizeDeps: {
       include: [
         // 'case-1-foo-cjs',
+        // 'complex-foo/index.cjs',
+        // 'complex-foo/index.cjs',
+        // 'complex-foo/index2.mjs',
         // 'case-1-bar-cjs',
         // 'case-1-baz-cjs',
         // 'case-1-foo-alias',
