@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const reactRoot = findRoot(require.resolve('react'));
 
 // for further usage
-({ reactRoot });
+({ __dirname, reactRoot });
 
 const devServer = await createServer({
   configFile: false,
@@ -25,6 +25,9 @@ const devServer = await createServer({
   },
   appType: "custom",
   resolve: {
+    dedupe: [
+      // 'case-1-foo-cjs',
+    ],
     alias: [
       // {
       //   find: "react",
@@ -72,7 +75,7 @@ const devServer = await createServer({
     optimizeDeps: {
       include: [
         // 'case-1-foo-cjs',
-        // 'complex-foo/index.cjs',
+        // 'complex-foo',
         // 'complex-foo/index.cjs',
         // 'complex-foo/index2.mjs',
         // 'case-1-bar-cjs',
