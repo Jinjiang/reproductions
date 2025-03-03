@@ -37,7 +37,7 @@ const devServer = await createServer({
     //   'react',
     //   'react-dom',
     // ],
-    noExternal: true,
+    // noExternal: true,
   },
 });
 
