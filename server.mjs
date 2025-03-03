@@ -9,6 +9,9 @@ import react from "@vitejs/plugin-react";
 const require = createRequire(import.meta.url);
 const reactRoot = findRoot(require.resolve('react'));
 
+// for further usage
+({ reactRoot });
+
 const devServer = await createServer({
   configFile: false,
   envFile: false,
@@ -25,13 +28,12 @@ const devServer = await createServer({
       // }
     ],
   },
-  // // for other debugging purposes
-  // optimizeDeps: {
-  //   include: [
-  //     "react > rehackt",
-  //   ],
-  //   exclude: ["@bitdev/harmony.examples.people"],
-  // },
+  optimizeDeps: {
+    exclude: [
+      // 'case-1-foo-cjs',
+      // 'case-1-qux-esm',
+    ],
+  },
   ssr: {
     // external: [
     //   'react',
