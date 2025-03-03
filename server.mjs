@@ -1,5 +1,7 @@
 import { createRequire } from "module";
 import { readFileSync } from "fs";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import compression from 'compression'
 import { createServer } from "vite";
@@ -7,6 +9,8 @@ import findRoot from "find-root";
 import react from "@vitejs/plugin-react";
 
 const require = createRequire(import.meta.url);
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const reactRoot = findRoot(require.resolve('react'));
 
 // for further usage
@@ -25,7 +29,23 @@ const devServer = await createServer({
       // {
       //   find: "react",
       //   replacement: reactRoot,
-      // }
+      // },
+      // {
+      //   find: 'case-1-foo-cjs',
+      //   replacement: 'case-1-foo-alias',
+      // },
+      // {
+      //   find: 'case-1-foo-cjs',
+      //   replacement: './alias/foo.cjs',
+      // },
+      // {
+      //   find: 'case-1-foo-cjs',
+      //   replacement: 'complex-foo/node_modules/foo-alias/index.cjs',
+      // },
+      // {
+      //   find: 'case-1-foo-cjs',
+      //   replacement: './node_modules/complex-foo/node_modules/foo-alias/index.cjs',
+      // },
     ],
   },
   optimizeDeps: {
@@ -40,13 +60,17 @@ const devServer = await createServer({
     //   'react-dom',
     // ],
     // noExternal: true,
-    // optimizeDeps: {
-    //   include: [
-    //     'case-1-foo-cjs',
-    //     'case-1-bar-cjs',
-    //     'case-1-baz-cjs',
-    //   ],
-    // },
+    optimizeDeps: {
+      include: [
+        // 'case-1-foo-cjs',
+        // 'case-1-bar-cjs',
+        // 'case-1-baz-cjs',
+        // 'case-1-foo-alias',
+        // 'complex-foo > foo-alias',
+        // 'complex-foo/node_modules/foo-alias/index.cjs',
+        // './node_modules/complex-foo/node_modules/foo-alias/index.cjs',
+      ],
+    },
   },
 });
 
