@@ -10,13 +10,5 @@ export default defineConfig({
         dumpModules: true,
       },
     },
-    browser: {
-      provider: 'playwright',
-      enabled: true,
-      headless: true,
-      instances: [
-        { browser: 'chromium' },
-      ],
-    },
   },
 });
