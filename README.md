@@ -1,6 +1,6 @@
-How to reproduce:
+# How to reproduce
 
 ```bash
-pnpm install
-pnpm dev
+pnpm i
+pnpm test
 ```
