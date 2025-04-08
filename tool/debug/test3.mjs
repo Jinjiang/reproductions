@@ -14,7 +14,7 @@ const viteConfig = {
     fs: { strict: false },
   },
   test: {
-    globals: true,
+    // globals: true,
     environment: 'jsdom',
     root,
     watch: false,
