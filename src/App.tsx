@@ -1,5 +1,8 @@
-import { baz } from 'baz/baz-cjs.cjs'
+import { foo } from 'foo/foo-cjs.cjs'
+import { bar } from 'bar/bar-esm.mjs'
+
+console.log({ foo, bar })
 
 export default function App() {
-  return (<h1 className='baz'>{baz}</h1>)
+  return (<h1 className='bar'>{foo === bar ? 'Yes' : 'No' }</h1>)
 }
