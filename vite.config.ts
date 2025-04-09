@@ -6,8 +6,5 @@ export default defineConfig({
   resolve: {
     dedupe: ['foo'],
   },
-  ssr: {
-    noExternal: ['bar'],
-  },
   plugins: [react()],
 })

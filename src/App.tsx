@@ -1,8 +1,8 @@
 import { foo } from 'foo/foo-cjs.cjs'
-import { bar } from 'bar/bar-esm.mjs'
+import { qux } from 'qux/qux-cjs.cjs'
 
-console.log({ foo, bar })
+console.log({ foo, qux })
 
 export default function App() {
-  return (<h1 className='bar'>{foo === bar ? 'Yes' : 'No' }</h1>)
+  return (<h1>{foo === qux ? 'Yes' : 'No' }</h1>)
 }
