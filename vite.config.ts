@@ -8,7 +8,7 @@ export default defineConfig({
     include: [
       `react-dom/client`,
       'foo/foo-cjs.cjs',
-      'foo/foo-esm.mjs',
+      // 'foo/foo-esm.mjs',
       'foo/foo-cjs-module.cjs',
     ],
   },
