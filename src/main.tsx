@@ -5,11 +5,12 @@ import { createRoot } from 'react-dom/client'
 import { foo as fooCjs } from 'foo/foo-cjs.cjs'
 import { foo as fooEsm } from 'foo/foo-esm.mjs'
 import fooCjsModule from 'foo/foo-cjs-module.cjs'
+import fooCjsAll from 'foo/foo-cjs.cjs'
 
 import './index.css'
 import App from './App.tsx'
 
-console.log({ fooCjs, fooEsm, fooCjsModule });
+console.log({ fooCjs, fooEsm, fooCjsModule, fooCjsAll });
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
