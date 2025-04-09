@@ -1,5 +1,5 @@
-import { bar } from 'bar/bar-tsx.tsx'
+import { baz } from 'baz/baz-cjs.cjs'
 
 export default function App() {
-  return (<h1 className='bar'>{bar}</h1>)
+  return (<h1 className='baz'>{baz}</h1>)
 }
