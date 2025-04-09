@@ -5,6 +5,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   optimizeDeps: {
     noDiscovery: true,
+    include: [
+      `react-dom/client`,
+      'foo/foo-cjs.cjs',
+      'foo/foo-esm.mjs',
+      'foo/foo-cjs-module.cjs',
+    ],
   },
   plugins: [react()],
 })
