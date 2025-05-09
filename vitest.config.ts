@@ -6,9 +6,11 @@ export default defineConfig({
     server: {
       deps: {
         inline: true,
-        // // seems this configuration works
-        // inline: [ /^(?!.*vitest\/dist\/index\.js).*$/ ],
       },
+    },
+    coverage: {
+      provider: 'v8',
+      enabled: true,
     },
   }
 });
