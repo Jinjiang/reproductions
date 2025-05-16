@@ -2,6 +2,10 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
+    "dev": "rm -rf node_modules/.vite && vite",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "vite": "^6.3.5"
   }
 }
