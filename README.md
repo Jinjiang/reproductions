@@ -5,4 +5,4 @@ pnpm install
 pnpm dev
 ```
 
-Then you should find both `foo.js` and `bar.js` in `node_modules/.vite/deps/`.
+Then you should find all `foo.js`, `bar.js` and `baz.js` in `node_modules/.vite/deps/`.

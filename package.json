@@ -5,7 +5,8 @@
     "dev": "rm -rf node_modules/.vite && vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@types/node": "^22.15.18",
     "vite": "^6.3.5"
   }
 }

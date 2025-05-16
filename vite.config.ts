@@ -5,6 +5,7 @@ export default defineConfig({
     entries: [
       'entry.mjs',
       'node_modules/entry.mjs',
+      `${process.cwd()}/node_modules/entry2.mjs`,
     ],
   },
 });
