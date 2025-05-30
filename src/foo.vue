@@ -23,7 +23,7 @@ function handleMessageUpdate(newMsg) {
 
 -->
 
-<script setup>
+<script setup lang="ts">
 import { ref, defineProps, defineEmits } from 'vue'
 
 // Define props
@@ -45,7 +45,7 @@ const emit = defineEmits(['update:message'])
 const message = ref(props.initialMessage)
 
 // Example method to emit event
-function updateMessage(newMsg) {
+function updateMessage(newMsg: string) {
   message.value = newMsg
   emit('update:message', newMsg)
 }

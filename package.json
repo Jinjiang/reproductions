@@ -2,9 +2,12 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
+    "dev:tsc": "vue-tsc --declaration --emitDeclarationOnly",
+    "dev:meta": "node ./meta.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "typescript": "^5.8.3",
     "vue": "^3.5.16",
     "vue-component-meta": "^2.2.10",
     "vue-tsc": "^2.2.10"
