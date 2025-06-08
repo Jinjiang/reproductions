@@ -4,6 +4,7 @@
   "scripts": {
     "dev:tsc": "vue-tsc --declaration --emitDeclarationOnly",
     "dev:meta": "node ./meta.mjs",
+    "dev:meta:hello-world": "node ./meta-hello-world.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

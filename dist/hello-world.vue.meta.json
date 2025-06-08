@@ -1,0 +1,194 @@
+{
+  "type": 1,
+  "props": [
+    {
+      "name": "msg",
+      "global": false,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "string | undefined",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/src/hello-world/hello-world.vue",
+          "range": [
+            69,
+            122
+          ]
+        }
+      ],
+      "schema": {
+        "kind": "enum",
+        "type": "string | undefined",
+        "schema": [
+          "undefined",
+          "string"
+        ]
+      }
+    },
+    {
+      "name": "key",
+      "global": true,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "PropertyKey | undefined",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/node_modules/.pnpm/@vue+runtime-core@3.5.16/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+          "range": [
+            65161,
+            65179
+          ]
+        }
+      ],
+      "schema": {
+        "kind": "enum",
+        "type": "PropertyKey | undefined",
+        "schema": [
+          "undefined",
+          "string",
+          "number",
+          "symbol"
+        ]
+      }
+    },
+    {
+      "name": "ref",
+      "global": true,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "VNodeRef | undefined",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/node_modules/.pnpm/@vue+runtime-core@3.5.16/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+          "range": [
+            65184,
+            65199
+          ]
+        }
+      ],
+      "schema": {
+        "kind": "enum",
+        "type": "VNodeRef | undefined",
+        "schema": [
+          "undefined",
+          "string",
+          "Ref<any, any>",
+          {
+            "kind": "event",
+            "type": "(ref: Element | ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}, {}, string, {}, {}, {}, string, ComponentProvideOptions>, ... 4 more ..., any> | null, refs: Record<...>): void",
+            "schema": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "ref_for",
+      "global": true,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "boolean | undefined",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/node_modules/.pnpm/@vue+runtime-core@3.5.16/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+          "range": [
+            65204,
+            65222
+          ]
+        }
+      ],
+      "schema": {
+        "kind": "enum",
+        "type": "boolean | undefined",
+        "schema": [
+          "undefined",
+          "false",
+          "true"
+        ]
+      }
+    },
+    {
+      "name": "ref_key",
+      "global": true,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "string | undefined",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/node_modules/.pnpm/@vue+runtime-core@3.5.16/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+          "range": [
+            65227,
+            65244
+          ]
+        }
+      ],
+      "schema": {
+        "kind": "enum",
+        "type": "string | undefined",
+        "schema": [
+          "undefined",
+          "string"
+        ]
+      }
+    },
+    {
+      "name": "class",
+      "global": true,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "unknown",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/node_modules/.pnpm/@vue+runtime-core@3.5.16/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+          "range": [
+            72252,
+            72268
+          ]
+        }
+      ],
+      "schema": "unknown"
+    },
+    {
+      "name": "style",
+      "global": true,
+      "description": "",
+      "tags": [],
+      "required": false,
+      "type": "unknown",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/node_modules/.pnpm/@vue+runtime-core@3.5.16/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+          "range": [
+            72273,
+            72289
+          ]
+        }
+      ],
+      "schema": "unknown"
+    }
+  ],
+  "events": [],
+  "slots": [],
+  "exposed": [
+    {
+      "name": "msg",
+      "type": "string",
+      "description": "",
+      "declarations": [
+        {
+          "file": "/home/jinjiang/code/reproductions/src/hello-world/hello-world.vue",
+          "range": [
+            69,
+            122
+          ]
+        }
+      ],
+      "schema": "string"
+    }
+  ]
+}

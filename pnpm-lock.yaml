@@ -8,12 +8,13 @@ importers:
 
   .:
     dependencies:
-      typescript:
-        specifier: ^5.8.3
-        version: 5.8.3
       vue:
         specifier: ^3.5.16
         version: 3.5.16(typescript@5.8.3)
+    devDependencies:
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
       vue-component-meta:
         specifier: ^2.2.10
         version: 2.2.10(typescript@5.8.3)
