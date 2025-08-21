@@ -2,6 +2,17 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test2": "node debug/run.mjs"
+  },
+  "dependencies": {
+    "vue": "^3.5.19"
+  },
+  "devDependencies": {
+    "@testing-library/vue": "^6.6.1",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vitest/coverage-istanbul": "^3.2.4",
+    "jsdom": "^24.1.3",
+    "vitest": "^3.2.4"
   }
 }

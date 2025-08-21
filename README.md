@@ -2,5 +2,6 @@ How to reproduce:
 
 ```bash
 pnpm install
-pnpm dev
+pnpm test # works
+pnpm test2 # doesn't
 ```
