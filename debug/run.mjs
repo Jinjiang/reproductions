@@ -1,9 +1,7 @@
-// import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
+import { resolve } from 'path';
 import { startVitest } from 'vitest/node';
 import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
-import { watch } from 'less';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const root = resolve(__dirname, '..');
