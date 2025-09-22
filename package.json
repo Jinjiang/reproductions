@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack -w --config webpack.config.mjs",
-    "start": "node --conditions react-server server.js",
+    "start": "node --conditions react-server server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

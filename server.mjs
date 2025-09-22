@@ -1,24 +1,26 @@
-// server/server.js
-const register = require("react-server-dom-webpack/node-register");
-register();
-const path = require("path");
-const { readFileSync } = require("fs");
-const babelRegister = require("@babel/register");
+import register from "react-server-dom-webpack/node-register";
+import path from "path";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import babelRegister from "@babel/register";
 
+import { createRequire } from "module";
+import express from "express";
+import React from "react";
+import { renderToPipeableStream } from "react-server-dom-webpack/server";
+
+const require = createRequire(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+register();
 babelRegister({
   ignore: [/[\\\/](build|server|node_modules)[\\\/]/],
   presets: [["@babel/preset-react", { runtime: "automatic" }]],
   plugins: ["@babel/transform-modules-commonjs"],
 });
 
-const { renderToPipeableStream } = require("react-server-dom-webpack/server");
-
-const express = require("express");
-
-const React = require("react");
-const ReactApp = require("./src/app").default;
-
 const app = express();
+const ReactApp = require("./src/app").default;
 
 app.get("/", (req, res) => {
   const html = readFileSync(

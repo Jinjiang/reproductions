@@ -4,8 +4,6 @@ import ReactServerWebpackPlugin from "react-server-dom-webpack/plugin";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-console.log(ReactServerWebpackPlugin);
-
 export default {
   mode: "development",
   entry: [path.resolve(__dirname, "./src/index.js")],
