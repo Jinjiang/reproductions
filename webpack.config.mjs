@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
   mode: "development",
-  entry: [path.resolve(__dirname, "./src/index.js")],
+  entry: [path.resolve(__dirname, "./main/index.js")],
   output: {
     path: path.resolve(__dirname, "./public"),
     filename: "main.js",
@@ -28,5 +28,14 @@ export default {
       },
     ],
   },
-  plugins: [new ReactServerWebpackPlugin({ isServer: false })],
+  plugins: [
+    new ReactServerWebpackPlugin({
+      isServer: false,
+      clientReferences: {
+        directory: "./app",
+        recursive: true,
+        include: /\.(js|ts|jsx|tsx)$/
+      },
+    })
+  ],
 };

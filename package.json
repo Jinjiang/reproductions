@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "webpack -w --config webpack.config.mjs",
     "start": "node --conditions react-server server.mjs",
+    "clean": "rm public/client* && rm public/main.js && rm public/*.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

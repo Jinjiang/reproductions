@@ -20,7 +20,7 @@ babelRegister({
 });
 
 const app = express();
-const ReactApp = require("./src/app").default;
+const ReactApp = require("./app/index").default;
 
 app.get("/", (req, res) => {
   const html = readFileSync(
