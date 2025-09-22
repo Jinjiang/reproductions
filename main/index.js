@@ -10,7 +10,7 @@ const cache = new Map();
 function Root() {
   let content = cache.get("home");
   if (!content) {
-    content = createFromFetch(fetch("/react"));
+    content = createFromFetch(fetch("/bit-custom-react"));
     cache.set("home", content);
   }
 

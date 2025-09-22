@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
   res.send(html);
 });
 
-app.get("/react", (req, res) => {
+app.get("/bit-custom-react", (req, res) => {
   const manifest = readFileSync(
     path.resolve(__dirname, "./public/react-client-manifest.json"),
     "utf8"
