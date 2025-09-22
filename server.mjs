@@ -24,7 +24,7 @@ const ReactApp = require("./app/index").default;
 
 app.get("/", (req, res) => {
   const html = readFileSync(
-    path.resolve(__dirname, "./public/index.html"),
+    path.resolve(__dirname, "./main/index.html"),
     "utf8"
   );
   res.send(html);
