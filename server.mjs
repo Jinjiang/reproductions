@@ -20,7 +20,8 @@ babelRegister({
 });
 
 const app = express();
-const ReactApp = require("./app/index").default;
+// const ReactApp = require("./app/index").default;
+const ReactApps = require("./app/index");
 
 app.get("/", (req, res) => {
   const html = readFileSync(
@@ -37,7 +38,20 @@ app.get("/bit-custom-react", (req, res) => {
   );
   const moduleMap = JSON.parse(manifest);
   const { pipe } = renderToPipeableStream(
-    React.createElement(ReactApp),
+    React.createElement(ReactApps.foo),
+    moduleMap
+  );
+  pipe(res);
+});
+
+app.get("/bit-custom-react2", (req, res) => {
+  const manifest = readFileSync(
+    path.resolve(__dirname, "./public/react-client-manifest.json"),
+    "utf8"
+  );
+  const moduleMap = JSON.parse(manifest);
+  const { pipe } = renderToPipeableStream(
+    React.createElement(ReactApps.bar),
     moduleMap
   );
   pipe(res);

@@ -1,18 +1,5 @@
-import { use } from "react";
-import { createFromFetch } from "react-server-dom-webpack/client";
-import { createRoot } from "react-dom/client";
+import { mount } from "./mounter";
 
-const root = createRoot(document.getElementById("root"));
-root.render(<Root />);
+console.log("main index.js");
 
-const cache = new Map();
-
-function Root() {
-  let content = cache.get("home");
-  if (!content) {
-    content = createFromFetch(fetch("/bit-custom-react"));
-    cache.set("home", content);
-  }
-
-  return <>{use(content)}</>;
-}
+mount();
