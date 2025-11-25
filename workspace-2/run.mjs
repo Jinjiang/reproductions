@@ -1,5 +1,5 @@
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { build } from 'vite';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 await build({
   configFile: false,
@@ -33,3 +33,5 @@ await build({
     },
   }
 });
+
+console.log('build done');

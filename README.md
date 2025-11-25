@@ -1,6 +1,9 @@
 How to reproduce:
 
 ```bash
+cd workspace-1
 pnpm install
-pnpm dev
+cd ../workspace-2
+pnpm install
+pnpm build
 ```

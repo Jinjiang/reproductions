@@ -1,0 +1,13 @@
+{
+  "name": "workspace-2",
+  "private": true,
+  "scripts": {
+    "prepare": "node prepare.mjs",
+    "build": "node run.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "vite": "^7.2.4",
+    "vite-plugin-node-polyfills": "0.24.0"
+  }
+}
