@@ -8,7 +8,7 @@ pnpm dev
 ```
 ❯ pnpm dev
 
-> reproduce@ dev /<project-root>Volumes
+> reproduce@ dev /<project-root>
 > vite
 
 1:17:57 PM [vite] warning: `esbuild` option was specified by "vite-plugin-node-polyfills" plugin. This option is deprecated, please use `oxc` instead.
