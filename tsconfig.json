@@ -9,6 +9,7 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "strict": true,
@@ -20,8 +21,8 @@
     "isolatedModules": true,
     "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["src", "examples"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "examples"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
