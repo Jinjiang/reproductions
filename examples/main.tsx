@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
-import MyVueComponent from '../src/MyVueComponent.vue';
-import MyReactExamples from './MyReactExamples';
 import { createRoot } from 'react-dom/client';
+import { MyVueComponent, MyReactComponent } from 'my-comp';
 
 // Mount Vue component
 const vueApp = createApp({
@@ -14,9 +13,8 @@ const vueApp = createApp({
     </div>
   `,
 });
-
 vueApp.mount('#vue-app');
 
 // Mount React component
 const reactRoot = createRoot(document.getElementById('react-app')!);
-reactRoot.render(<MyReactExamples />);
+reactRoot.render(<MyReactComponent />);
