@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Examples</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+          'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+          'Helvetica Neue', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        color: white;
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .section {
+        background: white;
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .section h2 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 10px;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .info {
+        color: #666;
+        font-size: 0.9em;
+        margin-top: 15px;
+        padding: 10px;
+        background: #f5f5f5;
+        border-left: 4px solid #667eea;
+        border-radius: 4px;
+      }
+
+      #vue-app,
+      #react-app {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎨 Component Examples</h1>
+
+      <div class="section">
+        <h2>Vue Button Component</h2>
+        <div id="vue-app"></div>
+        <div class="info">
+          Vue button component with click counter. Each click increments the
+          counter displayed next to the button.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>React Button Component</h2>
+        <div id="react-app"></div>
+        <div class="info">
+          React button component with identical behavior to Vue version. Uses
+          React hooks for state management.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Features</h2>
+        <ul style="margin-left: 20px; color: #333; line-height: 1.8">
+          <li>Two variants: <code>primary</code> and <code>secondary</code></li>
+          <li>Click counter that increments with each click</li>
+          <li>Disabled state support</li>
+          <li>Shared utility functions for both implementations</li>
+          <li>Fully styled and responsive</li>
+          <li>TypeScript support</li>
+          <li>Unit tests with Vitest</li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>
