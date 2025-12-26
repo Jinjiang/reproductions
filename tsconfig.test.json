@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
     "composite": true,
-    "noEmit": true,
-    "module": "ESNext",
+
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "types": ["vitest/globals", "node"],
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "types": ["vitest/globals", "node"],
+
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo/test.tsbuildinfo",
   },
   "include": ["test", "src/vue.d.ts"],
   "references": [{ "path": "./tsconfig.src.json" }]
