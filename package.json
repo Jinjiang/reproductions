@@ -2,7 +2,20 @@
   "name": "my-comp",
   "private": true,
   "type": "module",
-  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    }
+  },
   "scripts": {
     "compile": "node scripts/compile.mjs",
     "watch": "pnpm run compile -- --watch",
