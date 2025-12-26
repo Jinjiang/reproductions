@@ -14,6 +14,7 @@ const projectRoot = path.resolve(__dirname, '..');
 const srcDir = path.join(projectRoot, 'src');
 const distDir = path.join(projectRoot, 'dist');
 const watch = process.argv.includes('--watch');
+const vueOnly = process.argv.includes('--vue-only');
 
 // Create dist directory
 if (!fs.existsSync(distDir)) {
@@ -72,11 +73,31 @@ function compileVueFiles() {
         tsRuntime: ts,
       });
       const jsOutPath = path.join(distDir, path.basename(result.js.filename).replace(/\/\\/g, '/'));
-      writeTextFile(jsOutPath, result.js.code);
+      const jsFileName = path.basename(jsOutPath);
+      let jsCode = result.js.code;
+      if (result.js.sourceMap) {
+        jsCode += `\n//# sourceMappingURL=${jsFileName}.map`;
+      }
+      writeTextFile(jsOutPath, jsCode);
+      
+      if (result.js.sourceMap) {
+        const mapOutPath = jsOutPath + '.map';
+        writeTextFile(mapOutPath, JSON.stringify(result.js.sourceMap));
+      }
 
       for (const cssFile of result.css) {
         const cssOutPath = path.join(distDir, path.basename(cssFile.filename).replace(/\/\\/g, '/'));
-        writeTextFile(cssOutPath, cssFile.code);
+        const cssFileName = path.basename(cssOutPath);
+        let cssCode = cssFile.code;
+        if (cssFile.sourceMap) {
+          cssCode += `\n/*# sourceMappingURL=${cssFileName}.map */`;
+        }
+        writeTextFile(cssOutPath, cssCode);
+        
+        if (cssFile.sourceMap) {
+          const cssMapOutPath = cssOutPath + '.map';
+          writeTextFile(cssMapOutPath, JSON.stringify(cssFile.sourceMap));
+        }
       }
       if (result.errors && result.errors.length) {
         for (const e of result.errors) console.warn('Vue compile warning:', e.message || e);
@@ -111,6 +132,11 @@ function compileTsFiles() {
         fileName: file,
       });
       writeTextFile(outPath, transpiled.outputText);
+      
+      if (transpiled.sourceMapText) {
+        const mapOutPath = outPath + '.map';
+        writeTextFile(mapOutPath, transpiled.sourceMapText);
+      }
     } catch (err) {
       console.error(`Failed to compile ${file}:`, err.message);
     }
@@ -148,10 +174,31 @@ function watchMode() {
               tsRuntime: ts,
             });
             const jsOutPath = path.join(distDir, path.basename(result.js.filename).replace(/\/\\/g, '/'));
-            writeTextFile(jsOutPath, result.js.code);
+            const jsFileName = path.basename(jsOutPath);
+            let jsCode = result.js.code;
+            if (result.js.sourceMap) {
+              jsCode += `\n//# sourceMappingURL=${jsFileName}.map`;
+            }
+            writeTextFile(jsOutPath, jsCode);
+            
+            if (result.js.sourceMap) {
+              const mapOutPath = jsOutPath + '.map';
+              writeTextFile(mapOutPath, JSON.stringify(result.js.sourceMap));
+            }
+            
             for (const cssFile of result.css) {
               const cssOutPath = path.join(distDir, path.basename(cssFile.filename).replace(/\/\\/g, '/'));
-              writeTextFile(cssOutPath, cssFile.code);
+              const cssFileName = path.basename(cssOutPath);
+              let cssCode = cssFile.code;
+              if (cssFile.sourceMap) {
+                cssCode += `\n/*# sourceMappingURL=${cssFileName}.map */`;
+              }
+              writeTextFile(cssOutPath, cssCode);
+              
+              if (cssFile.sourceMap) {
+                const cssMapOutPath = cssOutPath + '.map';
+                writeTextFile(cssMapOutPath, JSON.stringify(cssFile.sourceMap));
+              }
             }
           } catch (err) {
             console.error(`Failed to compile Vue SFC ${file}:`, err.message);
@@ -175,6 +222,11 @@ function watchMode() {
               fileName: file,
             });
             writeTextFile(outPath, transpiled.outputText);
+            
+            if (transpiled.sourceMapText) {
+              const mapOutPath = outPath + '.map';
+              writeTextFile(mapOutPath, transpiled.sourceMapText);
+            }
           } catch (err) {
             console.error(`Failed to compile ${file}:`, err.message);
           }
@@ -194,9 +246,12 @@ function watchMode() {
 console.log('🔨 Starting compilation...\n');
 
 try {
+  if (!vueOnly) {
+    compileTsFiles();
+    console.log('');
+  }
+  
   compileVueFiles();
-  console.log('');
-  compileTsFiles();
 
   console.log('\n✅ Compilation complete!\n');
 

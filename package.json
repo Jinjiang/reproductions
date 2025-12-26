@@ -4,13 +4,11 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "pnpm run compile:watch",
-    "types": "vue-tsc -b",
-    "build": "pnpm run compile && pnpm run types",
-    "examples": "vite",
-    "test": "vitest",
     "compile": "node scripts/compile.mjs",
-    "compile:watch": "node scripts/compile.mjs --watch"
+    "watch": "pnpm run compile -- --watch",
+    "build": "vue-tsc -b && pnpm run compile -- --vue-only",
+    "examples": "vite",
+    "test": "vitest"
   },
   "peerDependencies": {
     "react": "^19.2.3",
