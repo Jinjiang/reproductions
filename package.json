@@ -7,11 +7,11 @@
     "prebuild": "rm -rf dist",
     "dev": "pnpm run compile:watch",
     "build": "pnpm run compile && pnpm run types",
+    "examples": "vite",
     "test": "vitest",
-    "preview": "vite preview",
     "compile": "node scripts/compile.mjs",
     "compile:watch": "node scripts/compile.mjs --watch",
-    "types": "tsc --emitDeclarationOnly"
+    "types": "tsc -b"
   },
   "peerDependencies": {
     "react": "^19.2.3",

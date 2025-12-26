@@ -1,5 +1,4 @@
-import { describe, it, expect } from 'vitest';
-import { incrementCounter, resetCounter, formatButtonLabel, isValidVariant } from './utils';
+import { incrementCounter, resetCounter, formatButtonLabel, isValidVariant } from '../src/utils';
 
 describe('Utils', () => {
   describe('incrementCounter', () => {

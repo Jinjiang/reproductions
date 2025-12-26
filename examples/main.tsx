@@ -1,20 +1,15 @@
 import { createApp } from 'vue';
 import { createRoot } from 'react-dom/client';
-import { MyVueComponent, MyReactComponent } from 'my-comp';
+import ReactApp from './react-app';
+import VueApp from './vue-app.vue';
 
-// Mount Vue component
-const vueApp = createApp({
-  components: { MyVueComponent },
-  template: `
-    <div class="button-group">
-      <MyVueComponent label="Primary Button" variant="primary" />
-      <MyVueComponent label="Secondary Button" variant="secondary" />
-      <MyVueComponent label="Disabled Button" variant="primary" :disabled="true" />
-    </div>
-  `,
-});
-vueApp.mount('#vue-app');
+document.getElementById('app')!.innerHTML = `
+  <div id="react-app"></div>
+  <div id="vue-app"></div>
+`;
 
-// Mount React component
 const reactRoot = createRoot(document.getElementById('react-app')!);
-reactRoot.render(<MyReactComponent />);
+reactRoot.render(<ReactApp />);
+
+const vueApp = createApp(VueApp);
+vueApp.mount('#vue-app');

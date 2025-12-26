@@ -1,34 +1,9 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "typeRoots": ["./node_modules/@types"]
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "examples"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "vueCompilerOptions": {
-    "target": 3
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.src.json" },
+    { "path": "./tsconfig.test.json" },
+    { "path": "./tsconfig.examples.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
