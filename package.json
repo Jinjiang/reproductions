@@ -2,6 +2,12 @@
   "name": "reproduce",
   "private": true,
   "scripts": {
+    "dev": "rm -rf dist && node ./debug.mjs -b",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/node": "^25.0.3",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.1"
   }
 }

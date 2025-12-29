@@ -1,0 +1,13 @@
+export type foo = string | number;
+export type bar = boolean | null;
+export type baz = foo | bar;
+export type qux = { a: foo; b: bar };
+export type quux = Array<foo | bar>;
+export type corge = Record<string, foo>;
+export type grault = Partial<qux>;
+export type garply = Readonly<quux>;
+export type waldo = Promise<foo>;
+export type fred = () => bar;
+export type plugh = (arg: foo) => baz;
+export type xyzzy = keyof qux;
+export type thud = foo & { c: string };
