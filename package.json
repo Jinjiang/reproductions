@@ -1,0 +1,18 @@
+{
+  "name": "reproduce",
+  "private": true,
+  "scripts": {
+    "prepare": "node prepare.mjs",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "react": "^19.2.4"
+  },
+  "devDependencies": {
+    "@mdx-js/rollup": "^3.1.1",
+    "@types/react": "^19.2.14",
+    "rolldown": "1.0.0-rc.2",
+    "vite": "8.0.0-beta.12",
+    "vite7": "npm:vite@^7"
+  }
+}
