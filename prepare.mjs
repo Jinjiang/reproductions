@@ -44,6 +44,10 @@ await build7({
   }
 })
 
+const vite8Globals = {
+  react: 'React',
+};
+
 await build8({
   configFile: false,
   envFile: false,
@@ -63,11 +67,17 @@ await build8({
         'react',
       ],
       output: {
-        globals: {
-          react: 'React',
-        },
+        globals: vite8Globals,
         intro: function() {
-          return `if (typeof require === 'undefined') {\n  var require = function(id) {\n    var globals = ${JSON.stringify({ react: 'React' })};\n    return (typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : global)[globals[id]];\n  };\n}`
+          return `if (typeof require === 'undefined') {
+  var require = function(id) {
+    var globals = ${JSON.stringify(vite8Globals)};
+    if (!(id in globals)) {
+      throw new Error('External dependency "' + id + '" is not configured in globals mapping');
+    }
+    return (typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : global)[globals[id]];
+  };
+}`
         }
       },
     },

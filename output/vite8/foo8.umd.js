@@ -1,6 +1,11 @@
 (function(global, factory) {
 	typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define([], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, global.foo8 = factory());
 })(this, function() {
+	if (typeof require === "undefined") var require = function(id) {
+		var globals = { "react": "React" };
+		if (!(id in globals)) throw new Error("External dependency \"" + id + "\" is not configured in globals mapping");
+		return (typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : global)[globals[id]];
+	};
 	var __commonJSMin = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
 	/**
 	* @license React
