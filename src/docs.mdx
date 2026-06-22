@@ -1,0 +1,36 @@
+import { Button } from './components/button';
+import Card from './components/card';
+
+# Scope Context Demo
+
+Below are three "live code" renderers showing the same code snippet.
+Each one tries to access `Button` and `Card` from scope.
+
+The MDX file imports `Button` (named) and `Card` (default).
+The `wrapWithScopeContext` plugin wraps everything in:
+
+```
+<MDXScopeProvider components={{Button, Card}}>
+```
+
+---
+
+## 1. Old Code Renderer (reads context ✅)
+
+<OldCodeRenderer>{'<Button>Click</Button>'}</OldCodeRenderer>
+
+## 2. New Code Renderer (ignores context ❌)
+
+<NewCodeRenderer>{'<Button>Click</Button>'}</NewCodeRenderer>
+
+## 3. Fixed Code Renderer — Option B (reads both ✅)
+
+<FixedCodeRenderer>{'<Button>Click</Button>'}</FixedCodeRenderer>
+
+---
+
+## Static rendering still works fine either way:
+
+<Card>
+  <Button>I'm a real Button inside a Card</Button>
+</Card>
