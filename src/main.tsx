@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { MDXProvider } from '@mdx-js/react';
 
 import Content from './docs.mdx';
@@ -30,4 +30,4 @@ function App() {
   );
 }
 
-createRoot(document.getElementById('app')!).render(<App />);
+ReactDOM.render(<App />, document.getElementById('app'));
