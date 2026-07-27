@@ -25,7 +25,7 @@ When the user asks for a new reproduction:
 2. Unless the user names another base, start a single-project reproduction from
    `boilerplate`, or a workspace/monorepo reproduction from
    `boilerplate-monorepo`. Follow the user's requested branch name; otherwise
-   use a short descriptive topic and date, consistent with existing branches.
+   follow the branch naming convention below.
 3. Keep the project as small as possible while still reproducing the behavior.
    Avoid production architecture, unrelated tooling, and cosmetic work.
 4. Use `pnpm`, never npm or Yarn.
@@ -44,6 +44,35 @@ Use a monorepo only when the reproduction depends on package boundaries,
 workspace resolution, peer dependencies, or linking behavior. It is acceptable
 to commit small package fixtures under paths normally ignored (including
 `node_modules`) when their exact on-disk shape is essential to the bug.
+
+## Branch naming convention
+
+Name new demo branches using:
+
+```text
+<meaningful-lowercase-kebab-case-id>-<YYYYMMDD>
+```
+
+- Use a concise ID that describes the tool, feature, or failure being
+  reproduced.
+- Use lowercase ASCII letters and numbers, with words separated by hyphens. Do
+  not use spaces, underscores, or uppercase letters.
+- End the branch name with the creation date as an eight-digit `YYYYMMDD`
+  timestamp.
+- Examples from this repository include `vite8-external-20260216`,
+  `vite-deps-hmr-20250822`, and `try-vue-render-fn-20241107`.
+- If several related demos are created on the same day, add a meaningful
+  qualifier before the timestamp, such as
+  `vite-deps-alias-fixed-20250507`, so the timestamp remains last.
+
+The expected shape is:
+
+```text
+^[a-z0-9]+(?:-[a-z0-9]+)*-[0-9]{8}$
+```
+
+The permanent branches `main`, `boilerplate`, and `boilerplate-monorepo` are
+exceptions to this convention.
 
 ## README expectations
 
