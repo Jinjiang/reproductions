@@ -1,4 +1,4 @@
-How to reproduce:
+# Vite React MDX full reload reproduction
 
 ```bash
 pnpm install

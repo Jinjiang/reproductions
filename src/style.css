@@ -1,0 +1,27 @@
+:root {
+  color: #202124;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin: 4rem auto;
+  max-width: 42rem;
+  padding: 0 1.5rem;
+}
+
+.boot-count {
+  background: #f1f3f4;
+  border-radius: 0.4rem;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem 0.75rem;
+}
