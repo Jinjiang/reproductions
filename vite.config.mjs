@@ -4,7 +4,12 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [
-    react(),
-    mdx(),
+    {
+      enforce: 'pre',
+      ...mdx()
+    },
+    react({
+      include: /\.(?:[jt]sx?|mdx?)$/
+    }),
   ],
 });
